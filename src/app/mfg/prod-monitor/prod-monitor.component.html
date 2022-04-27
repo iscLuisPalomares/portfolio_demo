@@ -1,0 +1,72 @@
+<p *ngIf="!orders"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="orders">
+  <thead>
+    <tr>
+      <th>MR</th>
+      <th>Date Created</th>
+      <th>Approver</th>
+      <th>Date Approved</th>
+      <th>Due Date</th>
+      <th>Finish Date</th>
+      <th>Generator</th>
+      <th>Production Line</th>
+      <th>Qty</th>
+      <th>Qty/Package</th>
+      <th>SKU</th>
+      <th>Status</th>
+      <th>Start Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.mrNumber }}</td>
+      <td>{{ order.dateCreated | date: 'short' }}</td>
+      <td>{{ order.approver }}</td>
+      <td>{{ order.dateApproved | date: 'short' }}</td>
+      <td>{{ order.dueDate | date: 'short' }}</td>
+      <td>{{ order.finishDate | date: 'short' }}</td>
+      <td>{{ order.generator }}</td>
+      <td>{{ order.prodLine }}</td>
+      <td>{{ order.qty }}</td>
+      <td>{{ order.qtyPackage }}</td>
+      <td>{{ order.sku }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order.startDate | date: 'short' }}</td>
+      <td><button (click)="openDetails(order.mrNumber)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<dx-data-grid id="dataGrid" [dataSource]="employees" keyExpr="EmployeeID">
+</dx-data-grid>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="!order_detail">No information to show</div>
+            <div *ngIf="order_detail">
+                <p>{{ order_detail.mrNumber }}</p>
+                <p>{{ order_detail.finishDate | date: 'short' }}</p>
+            </div>
+            <div>
+              <dx-button text="Click me" (onClick)="openMessage()">
+              </dx-button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+</div>

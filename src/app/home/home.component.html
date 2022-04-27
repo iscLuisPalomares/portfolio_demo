@@ -1,0 +1,29 @@
+<h1>Welcome {{ user }}</h1>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action" *ngFor="let task of tasksList">
+        {{ task }}
+    </li>
+</ul>
+
+<div>
+    <h1>now the stories</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>LANG</th>
+            <th>COUNTRY</th>
+            <th>DATE (Month - Day)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let storie of storiesList">
+            <td>{{ storie.id }}</td>
+            <td>{{ storie.language  }}</td>
+            <td>{{ storie.country | strToMath }}</td>
+            <td>{{ storie.date | date :'MMM-dd' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
