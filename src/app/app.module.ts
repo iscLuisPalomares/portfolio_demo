@@ -48,7 +48,8 @@ import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
       { path: 'charts', component: ChartsComponent },
       { path: 'newcontent', component: NewContentComponent },
       { path: 'climate', component: FetchDataComponent },
-      { path: 'prodmonitor', component: ProdMonitorComponent }
+      { path: 'prodmonitor', component: ProdMonitorComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],
   providers: [],
