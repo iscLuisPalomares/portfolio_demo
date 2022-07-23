@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "startngserve": "ng serve",
+    "start": "node app.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "express_server": "ng build && node app.js"
+    "express_server": "ng build && node app.js",
+    "heroku-postbuild": "ng build — prod"
   },
   "private": true,
   "dependencies": {
@@ -46,5 +48,9 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "nodemon": "^2.0.16",
     "typescript": "~4.6.2"
+  },
+  "engines": {
+    "node": "14.18.1",
+    "npm": "6.14.15"
   }
 }
