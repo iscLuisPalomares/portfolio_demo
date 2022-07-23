@@ -8,8 +8,15 @@ export function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
 }
 
+export function getBackEndUrl() {
+  return "http://localhost:3000/";
+  //in case you have your backend under same url you can call getBaseUrl() instead
+  //return getBaseUrl();
+}
+
 const providers = [
-  { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] }
+  { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] },
+  { provide: 'BACKEND_URL', useFactory: getBackEndUrl, deps: [] }
 ];
 
 if (environment.production) {
