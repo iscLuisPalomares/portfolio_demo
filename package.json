@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "express_server": "ng build && node app.js",
-    "heroku-postbuild": "ng build — prod"
+    "heroku-postbuild": "ng build prod"
   },
   "private": true,
   "dependencies": {
