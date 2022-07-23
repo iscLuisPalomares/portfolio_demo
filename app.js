@@ -4,7 +4,7 @@ const express = require('express');
 var cors = require('cors');
 const { _generateOrder, _generateWeatherRecord } = require('./server_functions/operations');
 const app = express()
-const port = 8080
+const port = 80
 
 
 var corsOptions = {
@@ -42,7 +42,7 @@ app.get('/listoforders', (req, res) => {
 
 app.use('/', express.static('dist/portfolio_demo'))
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
   console.log(`Go to http://localhost:${port}`)
 })
