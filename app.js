@@ -40,7 +40,7 @@ app.get('/listoforders', (req, res) => {
 });
 
 
-app.use('/', express.static('dist/portfolio_demo'))
+app.use('/*', express.static('dist/portfolio_demo'))
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
