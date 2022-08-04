@@ -1,0 +1,14 @@
+<p>chat works!</p>
+
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" class="form-control" name="valueMessage"
+        placeholder="What are your thoughts?" aria-label="What are your thoughts" 
+        aria-describedby="basic-addon1" [(ngModel)]="message">
+  </div>
+<button (click)="sendMessage()" class="btn btn-primary">Send</button>
+
+<div *ngFor="let thismessage of messages">
+    {{thismessage}}
+</div>

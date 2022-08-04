@@ -18,6 +18,10 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProdMonitorComponent } from './mfg/prod-monitor/prod-monitor.component';
 
 import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
+import { ChatComponent } from './sockets/chat/chat.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
     NaftaComponent,
     StrToMathPipe,
     NewCardComponent,
-    ProdMonitorComponent
+    ProdMonitorComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
     FormsModule,
     DxButtonModule,
     DxDataGridModule,
+    SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'nafta', component: NaftaComponent },
@@ -49,6 +55,7 @@ import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
       { path: 'newcontent', component: NewContentComponent },
       { path: 'climate', component: FetchDataComponent },
       { path: 'prodmonitor', component: ProdMonitorComponent },
+      { path: 'chat', component: ChatComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],

@@ -1,43 +1,46 @@
 <p *ngIf="!orders"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="orders">
-  <thead>
-    <tr>
-      <th>MR</th>
-      <th>Date Created</th>
-      <th>Approver</th>
-      <th>Date Approved</th>
-      <th>Due Date</th>
-      <th>Finish Date</th>
-      <th>Generator</th>
-      <th>Production Line</th>
-      <th>Qty</th>
-      <th>Qty/Package</th>
-      <th>SKU</th>
-      <th>Status</th>
-      <th>Start Date</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let order of orders">
-      <td>{{ order.mrNumber }}</td>
-      <td>{{ order.dateCreated | date: 'short' }}</td>
-      <td>{{ order.approver }}</td>
-      <td>{{ order.dateApproved | date: 'short' }}</td>
-      <td>{{ order.dueDate | date: 'short' }}</td>
-      <td>{{ order.finishDate | date: 'short' }}</td>
-      <td>{{ order.generator }}</td>
-      <td>{{ order.prodLine }}</td>
-      <td>{{ order.qty }}</td>
-      <td>{{ order.qtyPackage }}</td>
-      <td>{{ order.sku }}</td>
-      <td>{{ order.status }}</td>
-      <td>{{ order.startDate | date: 'short' }}</td>
-      <td><button (click)="openDetails(order.mrNumber)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="orders">
+    <thead>
+      <tr>
+        <th>MR</th>
+        <th>Date Created</th>
+        <th>Approver</th>
+        <th>Date Approved</th>
+        <th>Due Date</th>
+        <th>Finish Date</th>
+        <th>Generator</th>
+        <th>Production Line</th>
+        <th>Qty</th>
+        <th>Qty/Package</th>
+        <th>SKU</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.mrNumber }}</td>
+        <td>{{ order.dateCreated | date: 'short' }}</td>
+        <td>{{ order.approver }}</td>
+        <td>{{ order.dateApproved | date: 'short' }}</td>
+        <td>{{ order.dueDate | date: 'short' }}</td>
+        <td>{{ order.finishDate | date: 'short' }}</td>
+        <td>{{ order.generator }}</td>
+        <td>{{ order.prodLine }}</td>
+        <td>{{ order.qty }}</td>
+        <td>{{ order.qtyPackage }}</td>
+        <td>{{ order.sku }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.startDate | date: 'short' }}</td>
+        <td><button (click)="openDetails(order.mrNumber)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 
 <dx-data-grid id="dataGrid" [dataSource]="employees" keyExpr="EmployeeID">

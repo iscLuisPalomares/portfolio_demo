@@ -9,9 +9,9 @@ export function getBaseUrl() {
 }
 
 export function getBackEndUrl() {
-  //return "http://localhost:8080/";
+  return "http://localhost:3000/";
   //in case you have your backend under same url you can call getBaseUrl() instead
-  return getBaseUrl();
+  // return getBaseUrl();
 }
 
 const providers = [
