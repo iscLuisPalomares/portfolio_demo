@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -20,8 +20,9 @@ import { ProdMonitorComponent } from './mfg/prod-monitor/prod-monitor.component'
 import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
 import { ChatComponent } from './sockets/chat/chat.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { LoginformComponent } from './login/loginform/loginform.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'http://192.168.1.64:3000', options: {  } };
 
 @NgModule({
   declarations: [
@@ -38,13 +39,15 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     StrToMathPipe,
     NewCardComponent,
     ProdMonitorComponent,
-    ChatComponent
+    ChatComponent,
+    LoginformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     DxButtonModule,
     DxDataGridModule,
     SocketIoModule.forRoot(config),
@@ -56,6 +59,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
       { path: 'climate', component: FetchDataComponent },
       { path: 'prodmonitor', component: ProdMonitorComponent },
       { path: 'chat', component: ChatComponent },
+      { path: 'login', component: LoginformComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],
