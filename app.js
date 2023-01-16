@@ -2,6 +2,7 @@ require('./server_functions/operations');
 
 const express = require('express');
 const { createServer } = require("http");
+const jwt = require("jsonwebtoken");
 
 const { Server } = require("socket.io")
 const path = require('path');
@@ -16,6 +17,9 @@ const io = new Server(httpServer, {
 });
 const port = process.env.PORT || 3000;
 let messagesStore = [];
+var corsOptions = {
+    origin: "http://localhost:4200"
+}
 
 io.on("connection", (socket) => {
     console.log(socket.id);
@@ -33,11 +37,7 @@ io.on("connection", (socket) => {
 
 });
 
-// io.on("message", (content) => {
-//     console.log(content);
-//     messagesStore.push(content);
-//     io.emit(messagesStore);
-// })
+app.use(cors(corsOptions));
 
 app.get('/weatherforecast', cors(), (req, res) => {
     console.log('get list of forecasts');
@@ -65,6 +65,26 @@ app.get('/listoforders', cors(), (req, res) => {
         _generateOrder(),
     ];
     res.send(orders);
+});
+
+app.post('/api/login', cors(), (req, res) => {
+    //console.log(req.headers);
+    json_token = jwt.sign({ "user": "luis", "email": "iscluispal", "timestamp": new Date() }, "thisismysecret", { expiresIn: '1m' });
+    return res.send(json_token);
+    
+});
+
+app.post('/api/register', cors(), (req, res) => {
+    if (req.body.username == "luis") return res.send({ "error": "user already registered" });
+    return res.send({ "status": "ok" });
+});
+
+app.post('/api/verifytoken', cors(), (req, res) => {
+    console.log(req.body);
+    jwt.verify(req.headers.authorization.split(' ')[1], "thisismysecret", function(err, decoded) {
+        if (err) { return res.send({ "isValid": false }); }
+        return res.send({ "isValid": true });
+    });
 });
 
 

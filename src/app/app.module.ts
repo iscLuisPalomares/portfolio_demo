@@ -3,8 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+//import { JwtConfig, JwtInterceptor } from '@auth0/angular-jwt/auth0-angular-jwt';
+// import { JwtModule } from '@auth0/angular-jwt/auth0-angular-jwt';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { StrToMathPipe } from './common/pipes/str-to-math.pipe';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -21,8 +24,15 @@ import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
 import { ChatComponent } from './sockets/chat/chat.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { LoginformComponent } from './login/loginform/loginform.component';
+import { JwtinterceptorService } from './services/interceptors/jwtinterceptor.service';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginService } from './services/login.service';
 
 const config: SocketIoConfig = { url: 'http://192.168.1.64:3000', options: {  } };
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -45,25 +55,29 @@ const config: SocketIoConfig = { url: 'http://192.168.1.64:3000', options: {  } 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     DxButtonModule,
     DxDataGridModule,
+    HttpClientModule,
     SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: 'nafta', component: NaftaComponent },
-      { path: 'charts', component: ChartsComponent },
-      { path: 'newcontent', component: NewContentComponent },
-      { path: 'climate', component: FetchDataComponent },
-      { path: 'prodmonitor', component: ProdMonitorComponent },
+      { path: 'nafta', component: NaftaComponent, canActivate: [AuthGuard] },
+      { path: 'charts', component: ChartsComponent, canActivate: [AuthGuard] },
+      { path: 'newcontent', component: NewContentComponent, canActivate: [AuthGuard] },
+      { path: 'climate', component: FetchDataComponent, canActivate: [AuthGuard] },
+      { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
       { path: 'chat', component: ChatComponent },
-      { path: 'login', component: LoginformComponent },
+      { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true },
+    AuthGuard,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
