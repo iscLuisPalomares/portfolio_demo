@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from 'express';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -9,10 +9,10 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./loginform.component.scss']
 })
 export class LoginformComponent implements OnInit {
-  form:FormGroup;
+  form:UntypedFormGroup;
   isValid: string = "";
 
-  constructor(private fb:FormBuilder, private authService: LoginService) {
+  constructor(private fb:UntypedFormBuilder, private authService: LoginService) {
     this.form = fb.group({ 
       email:['', Validators.required], 
       password: ['', Validators.required]
