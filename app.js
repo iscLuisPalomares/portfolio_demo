@@ -3,6 +3,7 @@ require('./server_functions/operations');
 const express = require('express');
 const { createServer } = require("http");
 const jwt = require("jsonwebtoken");
+const mysql = require("mysql2")
 
 const { Server } = require("socket.io")
 const path = require('path');
@@ -12,7 +13,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: ["http://localhost:4200", "http://192.168.1.64:4200"]
+        origin: ["http://localhost:8080", "http://192.168.1.64:8080", "http://localhost:4200", "http://192.168.1.64:4200"]
     }
 });
 const port = process.env.PORT || 3000;
@@ -87,6 +88,23 @@ app.post('/api/verifytoken', cors(), (req, res) => {
     });
 });
 
+app.get('/tomographies', cors(), (req, res) => {
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "my-secret-pw",
+        database: "tomography_studies"
+    });
+      
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        con.query("select fspatient_name as 'patientname' from tb_tg_sessions", (err, rows, fields) => {
+            if (err) throw err;
+            res.send(rows);
+        });
+    });
+});
 
 // app.use("/", express.static(path.join(__dirname, "dist/portfolio_demo")));
 

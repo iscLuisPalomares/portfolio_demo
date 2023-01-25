@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
+  public tomographies: Tomography[] = [];
 
   constructor(http: HttpClient, @Inject('BACKEND_URL') baseUrl: string) {
     http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe({
@@ -15,6 +16,12 @@ export class FetchDataComponent {
       }, 
       error: error => console.error(error)
     });
+    http.get<Tomography[]>(baseUrl + 'tomographies').subscribe({
+      next: result => {
+        this.tomographies = result;
+      },
+      error: error => console.error(error)
+    })
   }
 }
 
@@ -23,4 +30,9 @@ interface WeatherForecast {
   temperatureC: number;
   temperatureF: number;
   summary: string;
+}
+
+
+interface Tomography {
+  patientname: string;
 }
