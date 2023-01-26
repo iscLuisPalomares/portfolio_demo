@@ -7,7 +7,7 @@
     "start": "node app.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --browsers ChromeHeadless",
     "express_server": "ng build && node app.js",
     "heroku-postbuild": "ng build"
   },

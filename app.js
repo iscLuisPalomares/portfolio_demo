@@ -88,17 +88,18 @@ app.post('/api/verifytoken', cors(), (req, res) => {
     });
 });
 
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "my-secret-pw",
+    database: "tomography_studies"
+});
 app.get('/tomographies', cors(), (req, res) => {
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "my-secret-pw",
-        database: "tomography_studies"
-    });
+    
       
     con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected!");
         con.query("select fspatient_name as 'patientname' from tb_tg_sessions", (err, rows, fields) => {
             if (err) throw err;
             res.send(rows);

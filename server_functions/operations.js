@@ -1,6 +1,6 @@
 exports = module.exports = {
     _generateWeatherRecord: function() {
-        return { "date": "2022-01-01", "temperatureC": 38, "temperatureF": 105, "summary": "Cloudy" };
+        return { "date": "2022-01-01", "temperatureC": getRandomNum(0, 45), "temperatureF": getRandomNum(32, 100), "summary": getRandomWeather() };
     },
     _generateOrder: function(mrnum = null) {
         var generators = [ "Luis", "Itai", "Carlos", "Nestor", "Fabian", "Gustavo", "LuisG", "Octavio", "Cardenas" ];
@@ -21,6 +21,11 @@ exports = module.exports = {
             dateApproved: "2022-01-01"
         };
     }
+}
+
+function getRandomWeather() {
+    var weatherList = ["Cloudy", "Sunny", "Rain", "Snow", "Fog", "Wind", "Thunderstorm"];
+    return weatherList[getRandomNum(0, weatherList.length - 1)];
 }
 
 function getRandomNum(min, max) {

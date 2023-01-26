@@ -1,6 +1,6 @@
 <h1 id="tableLabel">Weather forecast</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Data generated at server.</p>
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
@@ -23,6 +23,31 @@
   </tbody>
 </table>
 
+<div>
+  <h3 id="tabelLabel">Look for your local city weather</h3>
+  <input class="form-control" placeholder="Enter City" [(ngModel)]="selectedCity"/>
+  <br/>
+  <button class="btn btn-success" (click)="retrieveWeather()">Get weather</button>
+  <br/>
+</div>
+<table class='table table-striped' aria-labelledby="tabelLabel">
+  <thead>
+    <tr>
+      <th>Weather</th>
+      <th>Code</th>
+      <th>Temp F</th>
+      <th>Temp C</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>{{ selectedCityWeather }}</td>
+        <td>{{selectedCityLocation}}</td>
+        <td>{{selectedCityTemp}}</td>
+        <td>{{selectedCityTempC}}</td>
+      </tr>
+  </tbody>
+</table>
 
 <p *ngFor="let tomography of tomographies">
   {{ tomography.patientname }}
