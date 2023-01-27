@@ -14,22 +14,22 @@
 </ul>
 
 <div>
-    <h1>now the stories</h1>
+    <h1>History of updates</h1>
     <table class="table table-hover">
         <thead>
             <tr>
             <th>ID</th>
-            <th>LANG</th>
-            <th>COUNTRY</th>
-            <th>DATE (Month - Day)</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Notes</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let storie of storiesList">
             <td>{{ storie.id }}</td>
-            <td>{{ storie.language  }}</td>
-            <td>{{ storie.country | strToMath }}</td>
-            <td>{{ storie.date | date :'MMM-dd' }}</td>
+            <td>{{ storie.date | date: 'MMM-dd' }}</td>
+            <td>{{ storie.description }}</td>
+            <td>{{ storie.notes }}</td>
             </tr>
         </tbody>
     </table>

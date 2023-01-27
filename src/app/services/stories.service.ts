@@ -10,11 +10,10 @@ export class StoriesService {
   // baseUrl: String;
 
   dataArray: any = [
-    { id: 1, language: 'c#', country: 'USA', date: new Date('2002-08-01') },
-    { id: 2, language: 'c', country: 'MEX', date: new Date('2013-09-01') },
-    { id: 3, language: 'python', country: 'CHN', date: new Date('1998-01-24') },
-    { id: 4, language: 'java', country: 'RUS', date: new Date('2020-02-01') },
-    { id: 5, language: 'js', country: 'UKR', date: new Date('2014-09-01') },
+    { id: 1, date: new Date('2023-01-22'), description: 'Added weather api request', notes: 'Enter city name then click button' },
+    { id: 2, date: new Date('2023-01-23'), description: 'Added map with amcharts', notes: 'Home view shows a global map' },
+    { id: 3, date: new Date('2023-01-24'), description: 'Added bullets to amcharts map', notes: 'Bullets animated with two properties' },
+    { id: 4, date: new Date('2023-01-26'), description: 'Working on refresh issue', notes: 'On local refreshing has no problem, on host wont refresh properly' },
   ];
   
   // constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
