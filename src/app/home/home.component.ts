@@ -43,11 +43,13 @@ export class HomeComponent implements OnInit {
       am5map.MapChart.new(root, {
         projection: am5map.geoNaturalEarth1(),
         homeZoomLevel: 3.5,
+        
       })
     );
     let polygonSeries = chart.series.push(
       am5map.MapPolygonSeries.new(root, {
         geoJSON: am5geodata_worldLow,
+        exclude: ["AQ"],
         fill: am5.color(0xdddddd),
         stroke: am5.color(0xffffff)
       })
@@ -56,6 +58,7 @@ export class HomeComponent implements OnInit {
       tooltipText: "{name}",
       interactive: true
     });
+    
     polygonSeries.mapPolygons.template.states.create("hover", {
       fill: am5.color(0xaaeeff)
     });
