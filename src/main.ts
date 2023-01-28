@@ -9,7 +9,8 @@ export function getBaseUrl() {
 }
 
 export function getBackEndUrl() {
-  return "http://localhost:3000/";
+  if (getBaseUrl().includes("localhost")) return "http://localhost:3000/";
+  return "https://portfolio-demo-service.azurewebsites.net/";
   //in case you have your backend under same url you can call getBaseUrl() instead
   // return getBaseUrl();
 }
