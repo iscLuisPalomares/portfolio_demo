@@ -15,4 +15,7 @@ export class WebsocketioService {
   getMessage() {
     return this.socket.fromEvent('message').pipe(map((data: any) => data));
   }
+  destroy() {
+    this.socket.disconnect();
+  }
 }
