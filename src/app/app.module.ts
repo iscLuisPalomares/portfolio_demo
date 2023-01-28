@@ -28,7 +28,7 @@ import { JwtinterceptorService } from './services/interceptors/jwtinterceptor.se
 import { AuthGuard } from './guards/auth.guard';
 import { LoginService } from './services/login.service';
 
-const config: SocketIoConfig = { url: getBackEndUrl(), options: {  } };
+const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
 function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
@@ -36,7 +36,7 @@ function getBaseUrl() {
 
 function getBackEndUrl() {
   if (getBaseUrl().includes("localhost")) return "http://192.168.1.64:3000";
-  return "https://portfolio-demo-service.azurewebsites.net/";
+  return "https://portfolio-demo-service.azurewebsites.net";
 }
 
 export function tokenGetter() {
