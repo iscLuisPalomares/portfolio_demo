@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -14,18 +14,23 @@ export class LoginService {
 
   private decodedToken: any;
   private isUserAuthenticated: boolean = false;
+  private backendUrl: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject('BACKEND_URL') backendurl: string) {
+    this.backendUrl = backendurl;
+  }
 
   login(userData: any): Observable<any> {
-    return this.http.post('http://localhost:3000/api/login', userData, { responseType: "text" }).pipe(map(token => {
+    return this.http.post(`${this.backendUrl}api/login`, userData, { responseType: "text" }).pipe(map(token => {
       this.isUserAuthenticated = true;
+      console.log("token returned:");
+      console.log(token);
       return this.saveToken2(token);
     }));
   }
 
   verifyToken(userToken: any) {
-    return this.http.post('http://localhost:3000/api/verifytoken', userToken).pipe(map(value => {
+    return this.http.post(`${this.backendUrl}api/verifytoken`, userToken).pipe(map(value => {
       return value;
     }));
   }

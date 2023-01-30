@@ -5,17 +5,15 @@
         <legend>Login</legend>
         <div class="form-field">
             <label>Email:</label>
-            <input name="email" formControlName="email">
+            <input name="email" formControlName="email" class="form-control" placeholder="Enter email">
         </div>
         <div class="form-field">
             <label>Password:</label>
-            <input name="password" formControlName="password" 
-                   type="password">
+            <input name="password" formControlName="password" type="password" class="form-control" placeholder="Enter password">
         </div>
     </fieldset>
-    <div class="form-buttons">
-        <button class="btn btn-primary" 
-                (click)="login()">Login</button>
+    <div class="form-buttons margintop">
+        <button class="btn btn-primary" (click)="login()">Login</button>
     </div>
 </form>
 
