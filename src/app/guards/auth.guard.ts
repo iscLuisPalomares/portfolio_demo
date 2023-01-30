@@ -12,7 +12,9 @@ export class AuthGuard implements CanActivate {
   constructor(private auth: LoginService, private router: Router) { }
 
   private authState(): boolean {
+    //if user is logged it should not be able to open Login Or register again
     if (this.isLoginOrRegisterRoute()) {
+      alert("You are already authenticated. Navigating home...");
       this.router.navigate(['/']);
       return false;
     }
@@ -20,16 +22,13 @@ export class AuthGuard implements CanActivate {
   }
   private notAuthState(): boolean {
     if (this.isProtectedRoute()) {
+      alert("You need to login to open this view. Navigating home...");
       this.router.navigate(['/']);
       return false;
     }
-    // if (this.isLoginOrRegisterRoute()) return true;
-    // this.router.navigate(['/auth/login']);
-    // return false;
     return true;
   }
   private isLoginOrRegisterRoute(): boolean {
-    console.log("checkif prodmonitor");
     if (this.url.includes('/auth/login') || this.url.includes('/auth/register')) {
       return true;
     }

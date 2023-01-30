@@ -1,0 +1,14 @@
+.card:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.card {
+    transition: 0.5s;
+    transform: scale(1);
+    margin-bottom: 5pt;
+    cursor: pointer;
+}
+.fixedmargin {
+    margin-top: 20pt;
+}

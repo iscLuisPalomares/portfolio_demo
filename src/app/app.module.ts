@@ -27,6 +27,7 @@ import { LoginformComponent } from './login/loginform/loginform.component';
 import { JwtinterceptorService } from './services/interceptors/jwtinterceptor.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginService } from './services/login.service';
+import { DbsmanagerComponent } from './fetch-data/mongodbs/dbsmanager/dbsmanager.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -59,7 +60,8 @@ export function tokenGetter() {
     NewCardComponent,
     ProdMonitorComponent,
     ChatComponent,
-    LoginformComponent
+    LoginformComponent,
+    DbsmanagerComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +77,9 @@ export function tokenGetter() {
       { path: 'nafta', component: NaftaComponent, canActivate: [AuthGuard] },
       { path: 'charts', component: ChartsComponent, canActivate: [AuthGuard] },
       { path: 'newcontent', component: NewContentComponent, canActivate: [AuthGuard] },
-      { path: 'climate', component: FetchDataComponent, canActivate: [AuthGuard] },
+      { path: 'weather', component: FetchDataComponent, canActivate: [AuthGuard] },
       { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
+      { path: 'dbsmanager', component: DbsmanagerComponent, canActivate: [AuthGuard] },
       { path: 'chat', component: ChatComponent },
       { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
       { path: '', redirectTo: '/home', pathMatch: 'full' }

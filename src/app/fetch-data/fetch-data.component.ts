@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
-  public tomographies: Tomography[] = [];
+  public databases: Tomography[] = [];
   public selectedCity: String = "";
   public selectedCityWeather: String = "";
   public selectedCityLocation: String = "";
@@ -21,12 +21,12 @@ export class FetchDataComponent {
       }, 
       error: error => console.error(error)
     });
-    // http.get<Tomography[]>(baseUrl + 'tomographies').subscribe({
-    //   next: result => {
-    //     this.tomographies = result;
-    //   },
-    //   error: error => console.error(error)
-    // });
+    http.get<Tomography[]>(baseUrl + 'tomographies').subscribe({
+      next: result => {
+        this.databases = result;
+      },
+      error: error => console.error(error)
+    });
   }
 
   async retrieveWeather() {
