@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 //import { JwtConfig, JwtInterceptor } from '@auth0/angular-jwt/auth0-angular-jwt';
 // import { JwtModule } from '@auth0/angular-jwt/auth0-angular-jwt';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
-
 import { StrToMathPipe } from './common/pipes/str-to-math.pipe';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent } from './counter/counter.component';
@@ -28,6 +30,8 @@ import { JwtinterceptorService } from './services/interceptors/jwtinterceptor.se
 import { AuthGuard } from './guards/auth.guard';
 import { LoginService } from './services/login.service';
 import { DbsmanagerComponent } from './fetch-data/mongodbs/dbsmanager/dbsmanager.component';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './ngrx/login.reducer';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -65,6 +69,9 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -83,7 +90,9 @@ export function tokenGetter() {
       { path: 'chat', component: ChatComponent },
       { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
-    ])
+    ]),
+    // StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ loginstate: loginReducer }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true },
