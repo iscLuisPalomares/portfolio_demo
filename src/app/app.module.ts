@@ -32,6 +32,8 @@ import { LoginService } from './services/login.service';
 import { DbsmanagerComponent } from './fetch-data/mongodbs/dbsmanager/dbsmanager.component';
 import { StoreModule } from '@ngrx/store';
 import { loginReducer } from './ngrx/login.reducer';
+import { AboutmeComponent } from './home/aboutme/aboutme.component';
+import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -65,7 +67,9 @@ export function tokenGetter() {
     ProdMonitorComponent,
     ChatComponent,
     LoginformComponent,
-    DbsmanagerComponent
+    DbsmanagerComponent,
+    AboutmeComponent,
+    ComingsoonComponent
   ],
   imports: [
     BrowserModule,
@@ -87,11 +91,12 @@ export function tokenGetter() {
       { path: 'weather', component: FetchDataComponent, canActivate: [AuthGuard] },
       { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
       { path: 'dbsmanager', component: DbsmanagerComponent, canActivate: [AuthGuard] },
-      { path: 'chat', component: ChatComponent },
       { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
+      { path: 'chat', component: ChatComponent },
+      { path: 'aboutme', component: AboutmeComponent },
+      { path: 'comingsoon', component: ComingsoonComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]),
-    // StoreModule.forRoot({}, {}),
     StoreModule.forRoot({ loginstate: loginReducer }),
   ],
   providers: [

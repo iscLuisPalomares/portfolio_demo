@@ -20,13 +20,15 @@
             More
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="aboutme">About me</a></li>
             <li><a class="dropdown-item" routerLink="charts">Charts</a></li>
-            <li><a class="dropdown-item" routerLink="nafta">NAFTA</a></li>
+            <li><a class="dropdown-item" routerLink="minigame">Mini game</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" routerLink="weather" *ngIf="isUserLogged">Weather</a></li>
             <li><a class="dropdown-item" routerLink="dbsmanager" *ngIf="isUserLogged">Mongo dbs</a></li>
             <li><a class="dropdown-item" routerLink="prodmonitor">Prod Monitor</a></li>
             <li><a class="dropdown-item" routerLink="chat" *ngIf="isUserLogged">Chat</a></li>
+            <li><a class="dropdown-item" routerLink="comingsoon">Coming soon...</a></li>
           </ul>
         </li>
         <li class="nav-item">
