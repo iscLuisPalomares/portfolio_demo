@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, ObservableInput, of, shareReplay } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from 'moment';
 
@@ -20,17 +20,24 @@ export class LoginService {
     this.backendUrl = backendurl;
   }
 
+  public getIsUserAuthenticated() {
+    return this.isUserAuthenticated;
+  }
+
   login(userData: any): Observable<any> {
     return this.http.post(`${this.backendUrl}api/login`, userData, { responseType: "text" }).pipe(map(token => {
       this.isUserAuthenticated = true;
-      console.log("token returned:");
-      console.log(token);
       return this.saveToken2(token);
+    }), catchError(err => { 
+      alert("Invalid credentials.")
+      return of('error of'); 
     }));
   }
 
   verifyToken(userToken: any) {
-    return this.http.post(`${this.backendUrl}api/verifytoken`, userToken).pipe(map(value => {
+    return this.http.post(`${this.backendUrl}api/verifytoken`, {}, { 
+      headers: { authorization: userToken }
+    }).pipe(map(value => {
       return value;
     }));
   }

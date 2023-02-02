@@ -12,7 +12,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="login">Login</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isUserLogged">
           <a class="nav-link" routerLink="newcontent">Add New</a>
         </li>
         <li class="nav-item dropdown">
@@ -20,13 +20,15 @@
             More
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="aboutme">About me</a></li>
             <li><a class="dropdown-item" routerLink="charts">Charts</a></li>
-            <li><a class="dropdown-item" routerLink="nafta">NAFTA</a></li>
+            <li><a class="dropdown-item" routerLink="minigame">Mini game</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="weather">Weather</a></li>
-            <li><a class="dropdown-item" routerLink="dbsmanager">Mongo dbs</a></li>
+            <li><a class="dropdown-item" routerLink="weather" *ngIf="isUserLogged">Weather</a></li>
+            <li><a class="dropdown-item" routerLink="dbsmanager" *ngIf="isUserLogged">Mongo dbs</a></li>
             <li><a class="dropdown-item" routerLink="prodmonitor">Prod Monitor</a></li>
-            <li><a class="dropdown-item" routerLink="chat">Chat</a></li>
+            <li><a class="dropdown-item" routerLink="chat" *ngIf="isUserLogged">Chat</a></li>
+            <li><a class="dropdown-item" routerLink="comingsoon">Coming soon...</a></li>
           </ul>
         </li>
         <li class="nav-item">

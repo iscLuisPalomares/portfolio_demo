@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 //import { JwtConfig, JwtInterceptor } from '@auth0/angular-jwt/auth0-angular-jwt';
 // import { JwtModule } from '@auth0/angular-jwt/auth0-angular-jwt';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
-
 import { StrToMathPipe } from './common/pipes/str-to-math.pipe';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent } from './counter/counter.component';
@@ -28,6 +30,10 @@ import { JwtinterceptorService } from './services/interceptors/jwtinterceptor.se
 import { AuthGuard } from './guards/auth.guard';
 import { LoginService } from './services/login.service';
 import { DbsmanagerComponent } from './fetch-data/mongodbs/dbsmanager/dbsmanager.component';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './ngrx/login.reducer';
+import { AboutmeComponent } from './home/aboutme/aboutme.component';
+import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -36,7 +42,7 @@ function getBaseUrl() {
 }
 
 function getBackEndUrl() {
-  if (getBaseUrl().includes("localhost")) return "http://192.168.1.64:3000";
+  if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168.1.64")) return "http://192.168.1.64:3000";
   return "https://portfolio-demo-service.azurewebsites.net";
 }
 
@@ -61,10 +67,15 @@ export function tokenGetter() {
     ProdMonitorComponent,
     ChatComponent,
     LoginformComponent,
-    DbsmanagerComponent
+    DbsmanagerComponent,
+    AboutmeComponent,
+    ComingsoonComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -80,10 +91,13 @@ export function tokenGetter() {
       { path: 'weather', component: FetchDataComponent, canActivate: [AuthGuard] },
       { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
       { path: 'dbsmanager', component: DbsmanagerComponent, canActivate: [AuthGuard] },
-      { path: 'chat', component: ChatComponent },
       { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
+      { path: 'chat', component: ChatComponent },
+      { path: 'aboutme', component: AboutmeComponent },
+      { path: 'comingsoon', component: ComingsoonComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
-    ])
+    ]),
+    StoreModule.forRoot({ loginstate: loginReducer }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true },
