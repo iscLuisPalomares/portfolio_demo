@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StoriesService } from '../../services/stories.service';
+import { getBackEndUrl } from 'src/main';
 
 @Component({
   selector: 'app-aboutme',
@@ -7,25 +8,11 @@ import { StoriesService } from '../../services/stories.service';
   styleUrls: ['./aboutme.component.scss']
 })
 export class AboutmeComponent {
-  tasksList = [
-    'add a service', 
-    'add a pipe', 
-    'generate a custom pipe', 
-    'add login with jwt',
-    'create a new directive',
-    'dynamic css',
-    'add formulary programmatically',
-    'add radio buttons',
-    'add check boxes',
-    'add role-based links/pages',
-    'pass values to child',
-    'return values to parent',
-    'add two way binding'
-  ];
-  storiesList: any = [];
-  constructor(private storiesService: StoriesService) { }
+  backendUrl: string = "";
+  constructor(private storiesService: StoriesService) {
+    this.backendUrl = getBackEndUrl();
+  }
 
   ngOnInit(): void {
-    this.storiesList = this.storiesService.getStories();
   }
 }
