@@ -34,6 +34,7 @@ import { StoreModule } from '@ngrx/store';
 import { loginReducer } from './ngrx/login.reducer';
 import { AboutmeComponent } from './home/aboutme/aboutme.component';
 import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
+import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -69,7 +70,8 @@ export function tokenGetter() {
     LoginformComponent,
     DbsmanagerComponent,
     AboutmeComponent,
-    ComingsoonComponent
+    ComingsoonComponent,
+    BlackjackComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +97,7 @@ export function tokenGetter() {
       { path: 'chat', component: ChatComponent },
       { path: 'aboutme', component: AboutmeComponent },
       { path: 'comingsoon', component: ComingsoonComponent },
+      { path: 'blackjack', component: BlackjackComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]),
     StoreModule.forRoot({ loginstate: loginReducer }),
