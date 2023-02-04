@@ -9,7 +9,7 @@ import { WebsocketioService } from '../../services/websocketio.service';
 export class ChatComponent implements OnInit {
   messages: Message[] = [];
   service: WebsocketioService;
-  message: string = "Just type something...";
+  message: string = "";
   constructor(service: WebsocketioService) { 
     this.service = service;
     service.getMessage().subscribe({
@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.sendMessage("");
   }
 
   ngOnDestroy(): void {
@@ -34,6 +35,7 @@ export class ChatComponent implements OnInit {
 
   sendMessage() {
     this.service.sendMessage(this.message);
+    this.message = "";
   }
 
   

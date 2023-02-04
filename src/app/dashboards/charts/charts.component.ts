@@ -11,19 +11,27 @@ import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
+  
   // private root: am5.Root;
-  constructor() { }
+  
+  rootBarChart!: am5.Root;
+  rootPieChart!: am5.Root;
+  rootMapChart!: am5.Root;
+  constructor() {}
 
   ngOnInit(): void {
+    this.rootBarChart = am5.Root.new("barchart");
+    this.rootPieChart = am5.Root.new("piechart");
+    this.rootMapChart = am5.Root.new("mapchart");
+    
     this.initializeBarsChart();
     this.initializePieChart();
     this.initializeMapChart();
   }
-
+  
   initializeBarsChart() {
-    let root = am5.Root.new("chartdiv");
-    let chart = root.container.children.push(
-      am5xy.XYChart.new(root, {})
+    let chart = this.rootBarChart.container.children.push(
+      am5xy.XYChart.new(this.rootBarChart, {})
     );
     let data = [
       {
@@ -45,15 +53,15 @@ export class ChartsComponent implements OnInit {
 
     // Create Y-axis
     let yAxis = chart.yAxes.push(
-      am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {})
+      am5xy.ValueAxis.new(this.rootBarChart, {
+        renderer: am5xy.AxisRendererY.new(this.rootBarChart, {})
       })
     );
 
     // Create X-Axis
     let xAxis = chart.xAxes.push(
-      am5xy.CategoryAxis.new(root, {
-        renderer: am5xy.AxisRendererX.new(root, {}),
+      am5xy.CategoryAxis.new(this.rootBarChart, {
+        renderer: am5xy.AxisRendererX.new(this.rootBarChart, {}),
         categoryField: "category"
       })
     );
@@ -61,7 +69,7 @@ export class ChartsComponent implements OnInit {
 
     // Create series
     let series1 = chart.series.push(
-      am5xy.ColumnSeries.new(root, {
+      am5xy.ColumnSeries.new(this.rootBarChart, {
         name: "Series",
         xAxis: xAxis,
         yAxis: yAxis,
@@ -72,7 +80,7 @@ export class ChartsComponent implements OnInit {
     series1.data.setAll(data);
 
     let series2 = chart.series.push(
-      am5xy.ColumnSeries.new(root, {
+      am5xy.ColumnSeries.new(this.rootBarChart, {
         name: "Series",
         xAxis: xAxis,
         yAxis: yAxis,
@@ -87,17 +95,16 @@ export class ChartsComponent implements OnInit {
     // legend.data.setAll(chart.series.values);
 
     // Add cursor
-    chart.set("cursor", am5xy.XYCursor.new(root, {}));
+    chart.set("cursor", am5xy.XYCursor.new(this.rootBarChart, {}));
 
     // this.root = root;
   }
-
+  
   initializePieChart() {
     // Create root and chart
-    let root = am5.Root.new("barchart");
-    let chart = root.container.children.push( 
-      am5percent.PieChart.new(root, {
-        layout: root.verticalLayout
+    let chart = this.rootPieChart.container.children.push( 
+      am5percent.PieChart.new(this.rootPieChart, {
+        layout: this.rootPieChart.verticalLayout
       }) 
     );
 
@@ -115,7 +122,7 @@ export class ChartsComponent implements OnInit {
 
     // Create series
     let series = chart.series.push(
-      am5percent.PieSeries.new(root, {
+      am5percent.PieSeries.new(this.rootPieChart, {
         name: "Series",
         valueField: "sales",
         categoryField: "country"
@@ -124,10 +131,10 @@ export class ChartsComponent implements OnInit {
     series.data.setAll(data);
 
     // Add legend
-    let legend = chart.children.push(am5.Legend.new(root, {
+    let legend = chart.children.push(am5.Legend.new(this.rootPieChart, {
       centerX: am5.percent(50),
       x: am5.percent(50),
-      layout: root.horizontalLayout
+      layout: this.rootPieChart.horizontalLayout
     }));
 
     legend.data.setAll(series.dataItems);
@@ -135,21 +142,24 @@ export class ChartsComponent implements OnInit {
 
   initializeMapChart() {
     // Create root and chart
-    let root = am5.Root.new("mapchart"); 
-    let chart = root.container.children.push(
-      am5map.MapChart.new(root, {
+    let chart = this.rootMapChart.container.children.push(
+      am5map.MapChart.new(this.rootMapChart, {
         panX: "rotateX",
         projection: am5map.geoOrthographic()
       })
     );
-
-
     // Create polygon series
     let polygonSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {
+      am5map.MapPolygonSeries.new(this.rootMapChart, {
         geoJSON: am5geodata_worldLow,
         exclude: ["AQ"]
       })
     );
+  }
+
+  ngOnDestroy() {
+    this.rootBarChart.dispose();
+    this.rootPieChart.dispose();
+    this.rootMapChart.dispose();
   }
 }
