@@ -35,6 +35,7 @@ import { loginReducer } from './ngrx/login.reducer';
 import { AboutmeComponent } from './home/aboutme/aboutme.component';
 import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
+import { ColorPickerComponent } from './home/colorpicker/colorpicker.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -43,7 +44,7 @@ function getBaseUrl() {
 }
 
 function getBackEndUrl() {
-  if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168.1.64")) return "http://192.168.1.64:3000";
+  if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168")) return "http://localhost:3000";
   return "https://portfolio-demo-service.azurewebsites.net";
 }
 
@@ -71,7 +72,8 @@ export function tokenGetter() {
     DbsmanagerComponent,
     AboutmeComponent,
     ComingsoonComponent,
-    BlackjackComponent
+    BlackjackComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ export function tokenGetter() {
       { path: 'aboutme', component: AboutmeComponent },
       { path: 'comingsoon', component: ComingsoonComponent },
       { path: 'blackjack', component: BlackjackComponent },
+      { path: 'colorpicker', component: ColorPickerComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]),
     StoreModule.forRoot({ loginstate: loginReducer }),

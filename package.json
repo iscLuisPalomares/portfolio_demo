@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "startngserve": "ng serve",
+    "startngserveopenhost": "ng serve --host 0.0.0.0",
     "start": "node app.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

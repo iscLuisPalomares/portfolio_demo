@@ -1,0 +1,25 @@
+<div class="color-picker">
+    <div class="slider-container">
+      <div class="slider-label">Red</div>
+      <div class="slider-color" [ngStyle]="redAmountRGB"></div>
+      <input type="range" min="0" max="255" [(ngModel)]="red" (input)="updateColor()">
+      <div class="slider-value">{{red}}</div>
+      <div class="color-preview" [ngStyle]="redPreview"></div>
+    </div>
+    <div class="slider-container">
+      <div class="slider-label">Green</div>
+      <div class="slider-color" [ngStyle]="greenAmountRGB"></div>
+      <input type="range" min="0" max="255" [(ngModel)]="green" (input)="updateColor()">
+      <div class="slider-value">{{green}}</div>
+      <div class="color-preview" [ngStyle]="greenPreview"></div>
+    </div>
+    <div class="slider-container">
+      <div class="slider-label">Blue</div>
+      <div class="slider-color" [ngStyle]="blueAmountRGB"></div>
+      <input type="range" min="0" max="255" [(ngModel)]="blue" (input)="updateColor()">
+      <div class="slider-value">{{blue}}</div>
+      <div class="color-preview" [ngStyle]="bluePreview"></div>
+    </div>
+    <div class="color-preview" [ngStyle]="finalPreview"></div>
+  </div>
+  

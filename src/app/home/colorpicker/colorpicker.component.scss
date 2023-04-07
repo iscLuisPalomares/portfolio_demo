@@ -1,0 +1,34 @@
+.color-picker {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.slider-container {
+display: flex;
+flex-direction: row;
+align-items: center;
+margin: 10px;
+width: 500px;
+}
+
+.slider-label {
+width: 40px;
+}
+
+.slider-value {
+width: 40px;
+margin-left: 10px;
+}
+
+.slider-color {
+width: 40px;
+height: 20px;
+margin-left: 10px;
+}
+
+.color-preview {
+width: 200px;
+height: 200px;
+margin-top: 20px;
+}
