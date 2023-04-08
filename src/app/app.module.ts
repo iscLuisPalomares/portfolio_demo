@@ -36,6 +36,7 @@ import { AboutmeComponent } from './home/aboutme/aboutme.component';
 import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
 import { ColorPickerComponent } from './home/colorpicker/colorpicker.component';
+import { SavedcolorComponent } from './home/colorpicker/savedcolor/savedcolor.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -73,7 +74,8 @@ export function tokenGetter() {
     AboutmeComponent,
     ComingsoonComponent,
     BlackjackComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    SavedcolorComponent
   ],
   imports: [
     BrowserModule,
