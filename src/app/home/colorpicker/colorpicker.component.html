@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <div class="row">
+    <h3>Color picker</h3>
+  </div>
+  <div class="row">
     <div class="col-xs-12 col-lg-4">
       <div class="col-xs-12">
         <label for="redRange" class="form-label">Red range</label>
@@ -25,10 +28,11 @@
     </div>
     <div class="col-xs-12 col-lg-3">
       <div class="color-preview" [ngStyle]="finalPreview"></div>
+      <br>
       <button class="form-control" (click)="saveColor()">Save color</button>
     </div>
   </div>
-  <div class="row">
+  <div class="row storedColors">
     <div class="col-lg-2 col-xs-12" *ngFor="let color of storedColors">
       <app-savedcolor [savedcolor]="color"></app-savedcolor>
     </div>

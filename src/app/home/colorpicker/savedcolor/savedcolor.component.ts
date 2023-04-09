@@ -11,9 +11,7 @@ export class SavedcolorComponent {
 
   ngOnInit(): void {
     this.colorSavedStyle = {
-      "background-color": this.savedcolor,
-      "height": "100px",
-      "width": "100px"
+      "background-color": this.savedcolor
     }
   }
 }
