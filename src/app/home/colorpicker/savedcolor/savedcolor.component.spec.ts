@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SavedcolorComponent } from './savedcolor.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('SavedcolorComponent', () => {
   let component: SavedcolorComponent;
@@ -8,7 +9,8 @@ describe('SavedcolorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SavedcolorComponent ]
+      declarations: [ SavedcolorComponent ],
+      providers: [HttpClientModule]
     })
     .compileComponents();
 

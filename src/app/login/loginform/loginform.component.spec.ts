@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginformComponent } from './loginform.component';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Store } from '@ngrx/store';
 
 describe('LoginformComponent', () => {
   let component: LoginformComponent;
@@ -8,7 +11,9 @@ describe('LoginformComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginformComponent ]
+      declarations: [ LoginformComponent ],
+      imports: [ToastrModule.forRoot()],
+      providers: [HttpClientModule, HttpClient, HttpHandler, ToastrService, { provide: Store, useValue: true }, { provide: 'BACKEND_URL', useValue: '' }]
     })
     .compileComponents();
   });

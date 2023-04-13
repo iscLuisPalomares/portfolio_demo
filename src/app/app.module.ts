@@ -81,7 +81,7 @@ export function tokenGetter() {
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right'}),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DbsmanagerComponent } from './dbsmanager.component';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { getBackEndUrl } from 'src/main';
+import { platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 describe('DbsmanagerComponent', () => {
   let component: DbsmanagerComponent;
@@ -8,7 +11,8 @@ describe('DbsmanagerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DbsmanagerComponent ]
+      declarations: [ ],
+      providers: [HttpClientModule, HttpClient, HttpHandler, { provide: 'BACKEND_URL', useValue: '' }]
     })
     .compileComponents();
 

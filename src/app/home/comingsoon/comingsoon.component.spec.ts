@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ComingsoonComponent } from './comingsoon.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('ComingsoonComponent', () => {
   let component: ComingsoonComponent;
@@ -8,7 +9,8 @@ describe('ComingsoonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ComingsoonComponent ]
+      declarations: [ ComingsoonComponent ],
+      providers: [HttpClientModule]
     })
     .compileComponents();
 

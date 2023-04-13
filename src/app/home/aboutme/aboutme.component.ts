@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StoriesService } from '../../services/stories.service';
-import { getBackEndUrl } from 'src/main';
+// import { StoriesService } from '../../services/stories.service';
+// import { getBackEndUrl } from 'src/main';
 
 @Component({
   selector: 'app-aboutme',
@@ -9,10 +9,8 @@ import { getBackEndUrl } from 'src/main';
 })
 export class AboutmeComponent {
   backendUrl: string = "";
-  constructor(private storiesService: StoriesService) {
-    this.backendUrl = getBackEndUrl();
-  }
-
-  ngOnInit(): void {
+  constructor() {}
+  ngOnInit() {
+    // this.backendUrl = getBackEndUrl();
   }
 }

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProdMonitorComponent } from './prod-monitor.component';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 describe('ProdMonitorComponent', () => {
   let component: ProdMonitorComponent;
@@ -8,7 +9,8 @@ describe('ProdMonitorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProdMonitorComponent ]
+      declarations: [ ProdMonitorComponent ],
+      providers: [HttpClient, HttpClientModule, HttpHandler, { provide: 'BACKEND_URL', useValue: '' }]
     })
     .compileComponents();
   });

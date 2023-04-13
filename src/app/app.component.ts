@@ -12,8 +12,8 @@ export class AppComponent {
   isUserLogged: boolean = false;
   userIsLogged$!: Observable<boolean>;
   
-  title = 'Portfolio';
-  constructor(private store: Store<{loginstate: boolean}>) {
+  title = 'portfolio_demo';
+  constructor(store: Store<{loginstate: boolean}>) {
     this.userIsLogged$ = store.select('loginstate');
     // store.select(store => { console.log(store.loginReducer); });
     this.userIsLogged$.pipe().subscribe((value: boolean) => {

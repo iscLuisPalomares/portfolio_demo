@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ColorPickerComponent } from './colorpicker.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('ColorpickerComponent', () => {
   let component: ColorPickerComponent;
@@ -8,7 +9,8 @@ describe('ColorpickerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ColorPickerComponent ]
+      declarations: [ ColorPickerComponent ],
+      providers: [HttpClientModule]
     })
     .compileComponents();
 

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewContentComponent } from './new-content.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('NewContentComponent', () => {
   let component: NewContentComponent;
@@ -8,7 +9,8 @@ describe('NewContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewContentComponent ]
+      declarations: [ NewContentComponent ],
+      providers: [HttpClientModule]
     })
     .compileComponents();
   });

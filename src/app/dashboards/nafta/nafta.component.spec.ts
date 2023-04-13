@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NaftaComponent } from './nafta.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('NaftaComponent', () => {
   let component: NaftaComponent;
@@ -8,7 +9,8 @@ describe('NaftaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NaftaComponent ]
+      declarations: [ NaftaComponent ],
+      providers: [HttpClientModule]
     })
     .compileComponents();
   });

@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginService } from './login.service';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 describe('LoginService', () => {
   let service: LoginService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [HttpClientModule, HttpClient, HttpHandler, { provide: 'BACKEND_URL', useValue: '' }]
+    });
     service = TestBed.inject(LoginService);
   });
 
