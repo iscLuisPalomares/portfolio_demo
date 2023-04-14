@@ -4,6 +4,7 @@ import { LoginformComponent } from './loginform.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { Store } from '@ngrx/store';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('LoginformComponent', () => {
   let component: LoginformComponent;
@@ -12,7 +13,7 @@ describe('LoginformComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginformComponent ],
-      imports: [ToastrModule.forRoot()],
+      imports: [ToastrModule.forRoot(), FormsModule, ReactiveFormsModule],
       providers: [HttpClientModule, HttpClient, HttpHandler, ToastrService, { provide: Store, useValue: true }, { provide: 'BACKEND_URL', useValue: '' }]
     })
     .compileComponents();
