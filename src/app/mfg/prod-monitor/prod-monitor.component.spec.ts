@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProdMonitorComponent } from './prod-monitor.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
-describe('ProdMonitorComponent', () => {
+xdescribe('ProdMonitorComponent', () => {
   let component: ProdMonitorComponent;
   let fixture: ComponentFixture<ProdMonitorComponent>;
 

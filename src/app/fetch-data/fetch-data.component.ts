@@ -18,7 +18,7 @@ export class FetchDataComponent {
     http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe({
       next: result => {
         this.forecasts = result;
-      }, 
+      },
       error: error => console.error(error)
     });
     http.get<Tomography[]>(baseUrl + 'tomographies').subscribe({
@@ -34,7 +34,6 @@ export class FetchDataComponent {
     const data = await response.json();
     console.log(data);
     if (data.cod !== 200) { alert(data.message); return; }
-    //console.log(data['weather'][0].main + ' ' + data['sys']['country']);
     this.selectedCityWeather = data['weather'][0].main;
     this.selectedCityLocation = data['sys']['country'];
     this.selectedCityTemp = data['main']['temp'];
@@ -48,7 +47,6 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
-
 
 interface Tomography {
   patientname: string;

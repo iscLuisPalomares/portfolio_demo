@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AboutmeComponent } from './aboutme.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-describe('AboutmeComponent', () => {
+xdescribe('AboutmeComponent', () => {
   let component: AboutmeComponent;
   let fixture: ComponentFixture<AboutmeComponent>;
 

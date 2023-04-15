@@ -23,24 +23,17 @@ export class ChatComponent implements OnInit {
       }
     });
   }
-
   ngOnInit(): void {
     this.service.sendMessage("");
   }
-
   ngOnDestroy(): void {
     this.service.destroy();
   }
-
-
   sendMessage() {
     this.service.sendMessage(this.message);
     this.message = "";
   }
-
-  
 }
-
 
 interface Message {
   Content: String

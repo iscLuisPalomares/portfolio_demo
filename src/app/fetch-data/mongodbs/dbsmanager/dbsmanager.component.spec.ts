@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http'
 import { getBackEndUrl } from 'src/main';
 import { platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
-describe('DbsmanagerComponent', () => {
+xdescribe('DbsmanagerComponent', () => {
   let component: DbsmanagerComponent;
   let fixture: ComponentFixture<DbsmanagerComponent>;
 

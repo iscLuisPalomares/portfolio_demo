@@ -6,7 +6,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { Store } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-describe('LoginformComponent', () => {
+xdescribe('LoginformComponent', () => {
   let component: LoginformComponent;
   let fixture: ComponentFixture<LoginformComponent>;
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// import { StoriesService } from '../../services/stories.service';
-// import { getBackEndUrl } from 'src/main';
+import { getBackEndUrl } from 'src/main';
 
 @Component({
   selector: 'app-aboutme',
@@ -11,6 +10,6 @@ export class AboutmeComponent {
   backendUrl: string = "";
   constructor() {}
   ngOnInit() {
-    // this.backendUrl = getBackEndUrl();
+    this.backendUrl = getBackEndUrl();
   }
 }

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
-// import { Router } from 'express';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { login, logout } from 'src/app/ngrx/login.actions';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-loginform',

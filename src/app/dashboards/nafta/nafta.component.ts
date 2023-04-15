@@ -1,4 +1,3 @@
-import { keyframes } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as p5 from 'p5';
 
@@ -12,14 +11,12 @@ export class NaftaComponent implements OnInit {
   @ViewChild('sketch') sketch: ElementRef = new ElementRef({});
   constructor() { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
   }
 
   ngAfterViewInit() {
     this.p5 = new p5(sketch, this.sketch.nativeElement);
   }
-
 }
 
 const sketch = (p: p5) => {
@@ -44,7 +41,6 @@ const sketch = (p: p5) => {
   }
 
   p.draw = () => {
-    
     if (p.mouseIsPressed) {
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
     }

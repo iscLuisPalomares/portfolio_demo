@@ -124,7 +124,7 @@ export class HomeComponent implements OnInit {
       });
     });
 
-    let pointSeriesStatic = chart.series.push(
+    chart.series.push(
       am5map.MapPointSeries.new(root, {
         geoJSON: {
           "type": "FeatureCollection",
