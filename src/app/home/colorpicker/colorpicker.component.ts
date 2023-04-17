@@ -20,6 +20,7 @@ export class ColorPickerComponent implements OnInit {
 
   saveColor() {
     this.storedColors.push("#" + this.getHex(this.red) + this.getHex(this.green) + this.getHex(this.blue));
+    console.log("Stored colors array");
     console.log(this.storedColors);
   }
 
