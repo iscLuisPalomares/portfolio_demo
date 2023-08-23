@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ContentsService } from 'src/app/services/contents.service';
 
 @Component({
   selector: 'app-dbsmanager',
@@ -7,18 +7,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./dbsmanager.component.scss']
 })
 export class DbsmanagerComponent {
-  public databases: DatabaseRecord[] = [];
+  public databases: string[] = [];
+  collections: string[] = [];
+  dbselected: string | undefined;
+  baseUrl: string;
+  content: ContentsService;
   
-  constructor(http: HttpClient, @Inject('BACKEND_URL') baseUrl: string) {
-    http.get<DatabaseRecord[]>(baseUrl + 'tomographies').subscribe({
-      next: result => {
-        this.databases = result;
-      },
-      error: error => console.error(error)
+  constructor(content: ContentsService, @Inject('BACKEND_URL') baseUrl: string) {
+    this.content = content;
+    this.baseUrl = baseUrl;
+    content.getListOfDatabases(baseUrl).subscribe((listOfDB) => {
+      this.databases = listOfDB;
     });
   }
-}
 
-interface DatabaseRecord {
-  dbname: string;
+  showListOfCollections(dbname: string) {
+    this.dbselected = dbname;
+    this.content.getListOfCollections(this.baseUrl, this.dbselected).subscribe((listOfCollections) => {
+      this.collections = listOfCollections;
+    });
+  }
 }

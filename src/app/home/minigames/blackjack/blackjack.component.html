@@ -1,1 +1,27 @@
-<p>blackjack works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>blackjack</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-3 horizontal-shake" *ngIf="myHand.length >= maxCardInHandAllowed">
+            Hand is full
+        </div>
+        <div class="col-xs-2 col-lg-2" *ngIf="myHand.length < maxCardInHandAllowed">
+            <button class="form-control" (click)="takeCard()">Take card</button>
+        </div>
+        <div class="col-xs-2 col-lg-2">
+            <button class="form-control" (click)="evaluate()">Evaluate</button>
+        </div>
+        <div class="col-xs-2 col-lg-2">
+            <button class="form-control" (click)="resetGame()">Reset</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-lg-1" *ngFor="let card of myHand">{{card.value}}{{card.token}}</div>
+    </div>
+    <div class="row">
+        <h2 *ngIf="myHand.length == 5 || is21">Congratulations you won!</h2>
+    </div>
+</div>

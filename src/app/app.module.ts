@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 //import { JwtConfig, JwtInterceptor } from '@auth0/angular-jwt/auth0-angular-jwt';
 // import { JwtModule } from '@auth0/angular-jwt/auth0-angular-jwt';
@@ -37,6 +38,8 @@ import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
 import { ColorPickerComponent } from './home/colorpicker/colorpicker.component';
 import { SavedcolorComponent } from './home/colorpicker/savedcolor/savedcolor.component';
+import { PaintComponent } from './home/minigames/paint/paint.component';
+import { ContentsService } from './services/contents.service';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -75,9 +78,11 @@ export function tokenGetter() {
     ComingsoonComponent,
     BlackjackComponent,
     ColorPickerComponent,
-    SavedcolorComponent
+    SavedcolorComponent,
+    PaintComponent
   ],
   imports: [
+    NgDragDropModule.forRoot(),
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
@@ -103,6 +108,7 @@ export function tokenGetter() {
       { path: 'comingsoon', component: ComingsoonComponent },
       { path: 'blackjack', component: BlackjackComponent },
       { path: 'colorpicker', component: ColorPickerComponent },
+      { path: 'paint', component: PaintComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]),
     StoreModule.forRoot({ loginstate: loginReducer }),
@@ -110,7 +116,8 @@ export function tokenGetter() {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true },
     AuthGuard,
-    LoginService
+    LoginService,
+    ContentsService
   ],
   bootstrap: [AppComponent]
 })
