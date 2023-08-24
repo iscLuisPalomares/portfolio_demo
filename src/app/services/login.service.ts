@@ -29,6 +29,7 @@ export class LoginService {
       return this.saveToken2(token);
     }), catchError(err => { 
       alert("Invalid credentials.")
+      console.log(err);
       return of('error of'); 
     }));
   }
