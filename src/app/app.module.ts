@@ -49,7 +49,7 @@ function getBaseUrl() {
 
 function getBackEndUrl() {
   if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168")) return "http://localhost:3000";
-  return "http://3.82.4.101:4000";
+  return "http://3.82.4.101:4000/";
 }
 
 export function tokenGetter() {
