@@ -3,7 +3,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ToastrService } from 'ngx-toastr';
-import { login, logout } from 'src/app/ngrx/login.actions';
+import { login } from 'src/app/ngrx/login.actions';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -12,19 +12,19 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./loginform.component.scss']
 })
 export class LoginformComponent implements OnInit {
-  form:UntypedFormGroup;
+  form: UntypedFormGroup;
   isValid: string = "";
 
-  constructor(private fb:UntypedFormBuilder, private authService: LoginService, 
+  constructor(private fb: UntypedFormBuilder, private authService: LoginService,
     private toastr: ToastrService, private store: Store<{ loginstate: boolean }>, private router: Router) {
-    this.form = fb.group({ 
-      email:['', Validators.required], 
+    this.form = fb.group({
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   showSuccess() {
-    this.toastr.success('You can now open New record and Prod Monitor!', 'User authenticated!', { positionClass: 'toast-bottom-right'});
+    this.toastr.success('You can now open New record and Prod Monitor!', 'User authenticated!', { positionClass: 'toast-bottom-right' });
   }
 
   showFailure() {
@@ -32,14 +32,14 @@ export class LoginformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   login() {
     const val = this.form.value;
     let bodyObject = { username: val.email, password: val.password };
     if (val.email && val.password) {
-      this.authService.login( bodyObject ).subscribe(() => {
+      this.authService.login(bodyObject).subscribe(() => {
         if (this.authService.getIsUserAuthenticated()) {
           console.log("User is logged in");
           this.store.dispatch(login());
@@ -50,18 +50,21 @@ export class LoginformComponent implements OnInit {
         }
       });
     }
-    this.form.setValue({ email: "", password: ""});
-  }
-
-  logout() {
-    this.authService.logoutUser();
-    this.store.dispatch(logout());
-    this.showFailure();
+    this.form.setValue({ email: "", password: "" });
   }
 
   verify() {
-    this.authService.verifyToken(localStorage.getItem("auth_tkn")).subscribe((val) => {
-      this.isValid = JSON.stringify(val);
-    });
+    if (localStorage.getItem("auth_tkn")) {
+      this.authService.verifyToken(localStorage.getItem("auth_tkn")).subscribe((val) => {
+        let tokenVerification = JSON.parse(JSON.stringify(val));
+        if (tokenVerification["isValid"]) {
+          this.toastr.success("token valid");
+        } else {
+          this.toastr.error("token invalid");
+        }
+      });
+    } else {
+      this.toastr.error("No token available");
+    }
   }
 }

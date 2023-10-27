@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
-  public databases: Tomography[] = [];
   public selectedCity: String = "";
   public selectedCityWeather: String = "";
   public selectedCityLocation: String = "";
@@ -18,12 +17,6 @@ export class FetchDataComponent {
     http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe({
       next: result => {
         this.forecasts = result;
-      },
-      error: error => console.error(error)
-    });
-    http.get<Tomography[]>(baseUrl + 'tomographies').subscribe({
-      next: result => {
-        this.databases = result;
       },
       error: error => console.error(error)
     });
@@ -46,8 +39,4 @@ interface WeatherForecast {
   temperatureC: number;
   temperatureF: number;
   summary: string;
-}
-
-interface Tomography {
-  patientname: string;
 }

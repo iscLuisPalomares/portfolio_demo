@@ -12,9 +12,6 @@
             <button class="form-control" (click)="takeCard()">Take card</button>
         </div>
         <div class="col-xs-2 col-lg-2">
-            <button class="form-control" (click)="evaluate()">Evaluate</button>
-        </div>
-        <div class="col-xs-2 col-lg-2">
             <button class="form-control" (click)="resetGame()">Reset</button>
         </div>
     </div>
@@ -22,6 +19,7 @@
         <div class="col-xs-4 col-lg-1" *ngFor="let card of myHand">{{card.value}}{{card.token}}</div>
     </div>
     <div class="row">
-        <h2 *ngIf="myHand.length == 5 || is21">Congratulations you won!</h2>
+        <h2 *ngIf="myHand.length == 5 && handValue < 22 || is21">Congratulations you won!</h2>
+        <h2 *ngIf="handValue > 21">You lose!</h2>
     </div>
 </div>

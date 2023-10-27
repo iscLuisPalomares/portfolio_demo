@@ -44,7 +44,7 @@
         <td>{{ selectedCityWeather }}</td>
         <td>{{selectedCityLocation}}</td>
         <td>{{selectedCityTemp}}</td>
-        <td>{{selectedCityTempC}}</td>
+        <td>{{selectedCityTempC | number: "1.0-2"}}</td>
       </tr>
   </tbody>
 </table>

@@ -32,6 +32,8 @@ export class BlackjackComponent {
   takeCard() {
     this.myHand.push(this.takeOneCard());
     this.calculateHandValue(this.myHand);
+    if (this.handValue > 21) { console.log("you lose"); } else if (this.handValue == 21) { console.log("you win"); this.is21 = true;  }
+    else { console.log("want to take another one?"); }
     console.log('Cards remaining in deck: %d', this.deck.length);
   }
 
@@ -55,20 +57,15 @@ export class BlackjackComponent {
     return finalarr;
   }
 
-  evaluate() {
-    console.log(this.handValue);
-    if (this.handValue == 21) this.is21 = true;
-  }
-
   calculateHandValue(hand: Array<Card>): number {
     this.handValue = 0;
     this.amountACard = 0;
     hand.forEach(element => {
-      if (element.value == "A") { this.amountACard++; return; };
       if (["J", "Q", "K"].includes(element.value)) {
         this.handValue += 10; 
         return;
       }
+      if (element.value == "A") { this.amountACard++; return; };
       this.handValue += Number.parseInt(element.value);
       return;
     });
@@ -88,5 +85,9 @@ class Card {
   constructor(value: string, token: string) {
     this.value = value;
     this.token = token;
+  }
+
+  revealFlip() {
+    this.isHidden = false;
   }
 }

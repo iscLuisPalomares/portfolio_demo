@@ -9,8 +9,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="home">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isUserLogged">
           <a class="nav-link active" aria-current="page" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLogged">
+          <a class="nav-link active" aria-current="page" routerLink="logout">Logout</a>
         </li>
         <li class="nav-item" *ngIf="isUserLogged">
           <a class="nav-link" routerLink="newcontent">Add New</a>

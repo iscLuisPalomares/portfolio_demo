@@ -21,7 +21,7 @@ import { ChartsComponent } from './dashboards/charts/charts.component';
 import { NaftaComponent } from './dashboards/nafta/nafta.component';
 import { NewCardComponent } from './registry/new-card/new-card/new-card.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { ProdMonitorComponent } from './mfg/prod-monitor/prod-monitor.component';
+// import { ProdMonitorComponent } from './mfg/prod-monitor/prod-monitor.component';
 
 import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
 import { ChatComponent } from './sockets/chat/chat.component';
@@ -40,6 +40,8 @@ import { ColorPickerComponent } from './home/colorpicker/colorpicker.component';
 import { SavedcolorComponent } from './home/colorpicker/savedcolor/savedcolor.component';
 import { PaintComponent } from './home/minigames/paint/paint.component';
 import { ContentsService } from './services/contents.service';
+import { LongCtoShortPipe } from './common/pipes/long-cto-short.pipe';
+import { LogoutComponent } from './login/logout/logout.component';
 
 const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
@@ -70,7 +72,7 @@ export function tokenGetter() {
     NaftaComponent,
     StrToMathPipe,
     NewCardComponent,
-    ProdMonitorComponent,
+    // ProdMonitorComponent,
     ChatComponent,
     LoginformComponent,
     DbsmanagerComponent,
@@ -79,7 +81,9 @@ export function tokenGetter() {
     BlackjackComponent,
     ColorPickerComponent,
     SavedcolorComponent,
-    PaintComponent
+    PaintComponent,
+    LongCtoShortPipe,
+    LogoutComponent
   ],
   imports: [
     NgDragDropModule.forRoot(),
@@ -100,9 +104,10 @@ export function tokenGetter() {
       { path: 'charts', component: ChartsComponent, canActivate: [AuthGuard] },
       { path: 'newcontent', component: NewContentComponent, canActivate: [AuthGuard] },
       { path: 'weather', component: FetchDataComponent, canActivate: [AuthGuard] },
-      { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
+      // { path: 'prodmonitor', component: ProdMonitorComponent, canActivate: [AuthGuard] },
       { path: 'dbsmanager', component: DbsmanagerComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginformComponent, canActivate: [AuthGuard] },
+      { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
       { path: 'chat', component: ChatComponent },
       { path: 'aboutme', component: AboutmeComponent },
       { path: 'comingsoon', component: ComingsoonComponent },

@@ -35,18 +35,18 @@ export class AuthGuard implements CanActivate {
   }
 
   private isProtectedRoute(): boolean {
-    if (this.url.includes('/prodmonitor') || this.url.includes('/newcontent')) {
+    if (this.url.includes('/prodmonitor') || this.url.includes('/newcontent') || this.url.includes("/logout")) {
       return true;
     }
     return false;
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-      this.url = state.url;
-      if (this.auth.isAuthenticated()) {
-        return this.authState();
-      }
-      return this.notAuthState();
+    this.url = state.url;
+    if (this.auth.isAuthenticated()) {
+      return this.authState();
+    }
+    return this.notAuthState();
   }
-  
+
 }
