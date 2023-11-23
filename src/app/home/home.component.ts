@@ -12,6 +12,7 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 })
 export class HomeComponent implements OnInit {
   user = 'Aquel Que Permanece';
+  urlBackend = "http://192.168.1.70:3000/"
 
   storiesList: any = [];
   constructor() { }
