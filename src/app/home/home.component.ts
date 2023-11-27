@@ -1,23 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { StoriesService } from '../services/stories.service';
-import * as am5 from "@amcharts/amcharts5";
-import * as am5map from "@amcharts/amcharts5/map";
-import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+// import { StoriesService } from '../services/stories.service';
+// import * as am5 from "@amcharts/amcharts5";
+// import * as am5map from "@amcharts/amcharts5/map";
+// import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
+// import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(20px)' // Adjust the distance of upward movement
+      })),
+      transition('void <=> *', animate(2000)), // Adjust the duration as needed
+    ]),
+  ],
 })
 export class HomeComponent implements OnInit {
   user = 'Aquel Que Permanece';
   urlBackend = "http://192.168.1.70:3000/"
-
+  alreadyshown = false;
   storiesList: any = [];
-  constructor() { }
+  
+  constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
+    
   }
-  
+
+  ngAfterViewInit() {
+    const ournames = this.el.nativeElement.querySelector('#idtitletext');
+    
+    ournames.classList.remove('clearcolor');
+    ournames.classList.add('whitecolor');
+  }
+
 }
