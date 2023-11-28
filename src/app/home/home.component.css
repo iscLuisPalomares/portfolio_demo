@@ -13,12 +13,24 @@
 }
 
 .bigfont {
-    font-size: 45px;
+    font-size: 7vw;
+}
+
+.mediumfont {
+    font-size: 5vw;
+}
+
+@media (min-width: 600px) {
+    .bigfont {
+        font-size: 45px;
+    }
+    .mediumfont {
+        font-size: 33px;
+    }
 }
 
 .monofont {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 33px;
 }
 
 @media (min-width: 200px) {
