@@ -1,11 +1,24 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(20px)' // Adjust the distance of upward movement
+      })),
+      transition('void <=> *', animate(700)), // Adjust the duration as needed
+    ]),
+  ]
 })
 export class AppComponent {
   isUserLogged: boolean = false;
