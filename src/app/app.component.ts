@@ -12,11 +12,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       state('void', style({
         opacity: 0
       })),
-      state('void', style({
-        opacity: 0,
-        transform: 'translateY(20px)' // Adjust the distance of upward movement
-      })),
-      transition('void <=> *', animate(700)), // Adjust the duration as needed
+      transition('void <=> *', animate(700, style({
+        opacity: 1
+      }))),
     ]),
   ]
 })

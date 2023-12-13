@@ -4,7 +4,7 @@
       <div [@fadeInOut] class="col-xs-12 mediumfont monofont whitecolor">
         <p>Nuestra boda</p>
       </div>
-      <div id=idtitletext class="col-xs-12 bigfont nicefont clearcolor">
+      <div id=idtitletext class="col-xs-12 bigfont nicefont whitecolor">
         <div [@fadeInUpDelayed] class="col-xs-12">Nahui Torres</div>
         <div [@fadeInUpDelayed] class="col-xs-12">&#38;</div>
         <div [@fadeInUpDelayed] class="col-xs-12">Luis G Palomares</div>
@@ -71,7 +71,7 @@
   </div>
   <div class="bg-marmol tallsection">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <div #scrollTarget class="col-xs-12 bigfont nicefont clearcolor">
+      <div #scrollTargetFecha class="col-xs-12 bigfont nicefont clearcolor">
         <div class="col-xs-12">Junio 8</div>
         <div class="col-xs-12">Rosarito 2024</div>
       </div>
@@ -82,22 +82,30 @@
       <div class="position-absolute top-50 start-50 translate-middle gold-border">
         <div class="col-xs-12 mediumfont monofont blackcolor text-center">
           <img src="/assets/icons/nombres.png" class="img-invitacion" alt="NyL">
-          <div class="font-invitacion">Con la bendicion de nuestros padres y nuestras familias, hemos decidido juntarnos en matrimonio.</div>
+          <div #scrollTargetBendicion class="font-invitacion clearcolor">Con la bendicion de nuestros padres y nuestras familias, hemos decidido juntarnos en matrimonio.</div>
         </div>
         <div class="col-xs-12 text-center">
           <div class="row">
-            <div class="col blackcolor font-invitacion">AQUI PADRES LUIS</div>
-            <div class="col blackcolor font-invitacion">AQUI PADRES NAHUI</div>
+            <div #scrollTargetPadresLuis class="col blackcolor font-invitacion">AQUI PADRES LUIS</div>
+            <div #scrollTargetPadresNahui class="col blackcolor font-invitacion">AQUI PADRES NAHUI</div>
           </div>
         </div>
         <div class="col-xs-12 mediumfont monofont blackcolor text-center">
-          <div class="col blackcolor font-invitacion">
+          <div #scrollTargetPadrinos class="col blackcolor font-invitacion">
             PADRINOS
           </div>
         </div>
-        <div class="position-fixed bottom-0 start-50 translate-middle-x">
+        <div class="position-fixed bottom-0 start-50 translate-middle-x" style="margin-bottom: 5px;">
           <img src="/assets/icons/icon-top.png" class="img-invitacion" alt="NyL">
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-marmol tallsection">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div #scrollTargetAgradecimientos class="col-xs-12 bigfont nicefont clearcolor">
+        <div class="col-xs-12">Nuestro mejor regalo es su presencia pero si de sus corazones nace, pueden apoyarnos mediante una contribucion monetaria.</div>
+        <div class="col-xs-12">HSBC</div>
       </div>
     </div>
   </div>

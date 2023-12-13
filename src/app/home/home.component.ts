@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, ElementRef, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import * as AOS from 'aos';
+// import * as AOS from 'aos';
 // import { StoriesService } from '../services/stories.service';
 // import * as am5 from "@amcharts/amcharts5";
 // import * as am5map from "@amcharts/amcharts5/map";
@@ -49,7 +49,12 @@ import * as AOS from 'aos';
   ],
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('scrollTarget') scrollTarget: ElementRef | undefined;
+  @ViewChild('scrollTargetFecha') scrollTargetFecha: ElementRef | undefined;
+  @ViewChild('scrollTargetBendicion') scrollTargetBendicion: ElementRef | undefined;
+  @ViewChild('scrollTargetPadresLuis') scrollTargetPadresLuis: ElementRef | undefined;
+  @ViewChild('scrollTargetPadresNahui') scrollTargetPadresNahui: ElementRef | undefined;
+  @ViewChild('scrollTargetPadrinos') scrollTargetPadrinos: ElementRef | undefined;
+  @ViewChild('scrollTargetAgradecimientos') scrollTargetAgradecimientos: ElementRef | undefined;
 
   user = 'Aquel Que Permanece';
   urlBackend = "http://192.168.1.70:3000/"
@@ -61,7 +66,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkScreenSize();
-    AOS.init();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -71,9 +75,9 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.createIntersectionObserver();
-    const ournames = this.el.nativeElement.querySelector('#idtitletext');
-    ournames.classList.remove('clearcolor');
-    ournames.classList.add('whitecolor');
+    // const ournames = this.el.nativeElement.querySelector('#idtitletext');
+    // ournames.classList.remove('clearcolor');
+    // ournames.classList.add('whitecolor');
   }
 
   private checkScreenSize(): void {
@@ -87,25 +91,37 @@ export class HomeComponent implements OnInit {
       threshold: 0.5, // 0 means as soon as one pixel is visible
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observerWhiteText = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.playFadeInOnScrollAnimation();
+          this.playFadeInOnScrollAnimation(entry.target, true);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    const observerBlackText = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.playFadeInOnScrollAnimation(entry.target, false);
           observer.unobserve(entry.target);
         }
       });
     }, options);
 
-    if (this.scrollTarget) {
-      observer.observe(this.scrollTarget.nativeElement);
-    }
+    observerWhiteText.observe(this.scrollTargetFecha?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetAgradecimientos?.nativeElement);
+    
+    observerBlackText.observe(this.scrollTargetBendicion?.nativeElement);
+    observerBlackText.observe(this.scrollTargetPadresLuis?.nativeElement);
+    observerBlackText.observe(this.scrollTargetPadresNahui?.nativeElement);
+    observerBlackText.observe(this.scrollTargetPadrinos?.nativeElement);
   }
 
-  private playFadeInOnScrollAnimation() {
+  private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {
     // Trigger the fadeInOnScroll animation here
-    this.scrollTarget?.nativeElement.classList.remove('clearcolor')
-    this.scrollTarget?.nativeElement.classList.add('animate-fade-in-on-scroll');
-    this.scrollTarget?.nativeElement.classList.add('whitecolor');
+    target.classList.remove('clearcolor');
+    target.classList.add('animate-fade-in-on-scroll');
+    (isWhite)? target.classList.add('whitecolor') : target.classList.add('blackcolor');
   }
 
 }
