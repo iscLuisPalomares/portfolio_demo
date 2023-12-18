@@ -8,6 +8,11 @@
     transition: color 5s ease;
 }
 
+.goldcolor {
+    color: #a38548;
+    transition: color 5s ease;
+}
+
 .clearcolor {
     color: rgba(255, 255, 255, 0);
     transition: color 5s ease;
@@ -43,15 +48,29 @@
     .hero-image {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/img06_min_crop.jpg");
     }
+    .hero-image2 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
+    }
 }
 
 @media (min-width: 700px) {
     .hero-image {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/img06_min.jpg");
     }
+    .hero-image2 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
+    }
 }
 
 .hero-image {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+.hero-image2 {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

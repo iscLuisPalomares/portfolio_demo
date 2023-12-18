@@ -55,6 +55,10 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrollTargetPadresNahui') scrollTargetPadresNahui: ElementRef | undefined;
   @ViewChild('scrollTargetPadrinos') scrollTargetPadrinos: ElementRef | undefined;
   @ViewChild('scrollTargetAgradecimientos') scrollTargetAgradecimientos: ElementRef | undefined;
+  @ViewChild('scrollTargetLugarCeremonia') scrollTargetLugarCeremonia: ElementRef | undefined;
+  @ViewChild('scrollTargetCelebracion') scrollTargetCelebracion: ElementRef | undefined;
+  @ViewChild('scrollTargetConfirmarAsistencia') scrollTargetConfirmarAsistencia: ElementRef | undefined;
+  // 
 
   user = 'Aquel Que Permanece';
   urlBackend = "http://192.168.1.70:3000/"
@@ -108,13 +112,26 @@ export class HomeComponent implements OnInit {
       });
     }, options);
 
+    const observerGoldText = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.goldFontTransition(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
     observerWhiteText.observe(this.scrollTargetFecha?.nativeElement);
     observerWhiteText.observe(this.scrollTargetAgradecimientos?.nativeElement);
-    
+    observerWhiteText.observe(this.scrollTargetCelebracion?.nativeElement);
+
     observerBlackText.observe(this.scrollTargetBendicion?.nativeElement);
     observerBlackText.observe(this.scrollTargetPadresLuis?.nativeElement);
     observerBlackText.observe(this.scrollTargetPadresNahui?.nativeElement);
     observerBlackText.observe(this.scrollTargetPadrinos?.nativeElement);
+
+    observerGoldText.observe(this.scrollTargetLugarCeremonia?.nativeElement);
+    observerGoldText.observe(this.scrollTargetConfirmarAsistencia?.nativeElement);
   }
 
   private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {
@@ -122,6 +139,20 @@ export class HomeComponent implements OnInit {
     target.classList.remove('clearcolor');
     target.classList.add('animate-fade-in-on-scroll');
     (isWhite)? target.classList.add('whitecolor') : target.classList.add('blackcolor');
+  }
+
+  private goldFontTransition(target: Element) {
+    target.classList.remove('clearcolor');
+    target.classList.add('animate-fade-in-on-scroll');
+    target.classList.add('goldcolor');
+  }
+
+  sivoy() {
+    alert("enviar datos si voy");
+  }
+
+  novoy() {
+    alert("enviar datos no voy");
   }
 
 }
