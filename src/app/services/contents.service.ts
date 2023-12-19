@@ -40,4 +40,14 @@ export class ContentsService {
       return of(["error"]); 
     }));
   }
+
+  postInvitesConfimation(invites: string, isComing: boolean): Observable<string[]> {
+    let awsurl = "3.80.80.145:8000";
+    let localurl = "localhost:3000"
+    return this.http.post<string[]>(`https://${awsurl}/setinvite`, {"invites": invites, "confirm": isComing}).pipe(map((res) => {
+      return res;
+    }), catchError(err => { 
+      return of(["error"]); 
+    }));
+  }
 }

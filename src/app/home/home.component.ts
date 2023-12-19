@@ -1,5 +1,8 @@
 import { Component, ViewChild, OnInit, ElementRef, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ContentsService } from '../services/contents.service';
+// import { HttpParams } from "@angular/common/http";
+import { ActivatedRoute } from '@angular/router';
 // import * as AOS from 'aos';
 // import { StoriesService } from '../services/stories.service';
 // import * as am5 from "@amcharts/amcharts5";
@@ -58,18 +61,34 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrollTargetLugarCeremonia') scrollTargetLugarCeremonia: ElementRef | undefined;
   @ViewChild('scrollTargetCelebracion') scrollTargetCelebracion: ElementRef | undefined;
   @ViewChild('scrollTargetConfirmarAsistencia') scrollTargetConfirmarAsistencia: ElementRef | undefined;
-  // 
 
-  user = 'Aquel Que Permanece';
   urlBackend = "http://192.168.1.70:3000/"
   alreadyshown = false;
   storiesList: any = [];
   isMobile: boolean = false;
-  
-  constructor(private el: ElementRef) { }
+  content: ContentsService;
+  invitesname: string = "";
+  invitesMap: any = [
+    { "code": "io725fx", "name": "Samuel y Andrea" },
+    { "code": "io725fy", "name": "Lupe y Adan" }
+  ]
+
+  constructor(private el: ElementRef, content: ContentsService, private route: ActivatedRoute) {
+    this.content = content;
+  }
 
   ngOnInit(): void {
     this.checkScreenSize();
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params); // { orderby: "price" }
+        this.invitesname =  this.invitesMap.filter((obj: any) => {
+          return obj['code'] == params['invitescode'];
+        })[0]['name'];
+        this.invitesname = this.invitesname;
+        console.log(this.invitesname); // price
+      }
+      );
   }
 
   @HostListener('window:resize', ['$event'])
@@ -138,7 +157,7 @@ export class HomeComponent implements OnInit {
     // Trigger the fadeInOnScroll animation here
     target.classList.remove('clearcolor');
     target.classList.add('animate-fade-in-on-scroll');
-    (isWhite)? target.classList.add('whitecolor') : target.classList.add('blackcolor');
+    (isWhite) ? target.classList.add('whitecolor') : target.classList.add('blackcolor');
   }
 
   private goldFontTransition(target: Element) {
@@ -147,8 +166,18 @@ export class HomeComponent implements OnInit {
     target.classList.add('goldcolor');
   }
 
+  private getWho(): string {
+    let invitesName: string;
+    invitesName = "";
+
+    return invitesName;
+  }
+
   sivoy() {
-    alert("enviar datos si voy");
+    // alert("enviar datos si voy");
+    this.content.postInvitesConfimation(this.getWho(), true).subscribe((value) => {
+      console.log(value);
+    });
   }
 
   novoy() {
