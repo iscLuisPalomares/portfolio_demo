@@ -69,8 +69,8 @@ export class HomeComponent implements OnInit {
   content: ContentsService;
   invitesname: string = "";
   invitesMap: any = [
-    { "code": "io725fx", "name": "Samuel y Andrea" },
-    { "code": "io725fy", "name": "Lupe y Adan" }
+    { "code": "io22a", "name": "Samuel y Andrea" },
+    { "code": "io22b", "name": "Lupe y Adan" }
   ]
 
   constructor(private el: ElementRef, content: ContentsService, private route: ActivatedRoute) {
@@ -81,11 +81,12 @@ export class HomeComponent implements OnInit {
     this.checkScreenSize();
     this.route.queryParams
       .subscribe(params => {
-        console.log(params); // { orderby: "price" }
-        this.invitesname =  this.invitesMap.filter((obj: any) => {
+        console.log(params);
+        let queryparams =  this.invitesMap.filter((obj: any) => {
           return obj['code'] == params['invitescode'];
-        })[0]['name'];
-        this.invitesname = this.invitesname;
+        });
+        console.log(queryparams);
+        this.invitesname = (queryparams.length > 0)? queryparams[0]['name']:'default';
         console.log(this.invitesname); // price
       }
       );
