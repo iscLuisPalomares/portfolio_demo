@@ -41,10 +41,29 @@ export class ContentsService {
     }));
   }
 
-  postInvitesConfimation(invites: string, isComing: boolean): Observable<string[]> {
-    let awsurl = "3.80.80.145:8000";
-    let localurl = "localhost:3000"
-    return this.http.post<string[]>(`https://${awsurl}/setinvite`, {"invites": invites, "confirm": isComing}).pipe(map((res) => {
+  postInvitesConfimation(invitescode: string, isComing: boolean, howmany: number): Observable<any> {
+    let awsurl = "https://3.80.80.145:8000";
+    let localurl = "http://localhost:3000";
+    return this.http.post<string[]>(`${awsurl}/setinvite`, {"code": invitescode, "iscoming": isComing, "howmany": howmany}).pipe(map((res) => {
+      return res;
+    }), catchError(err => { 
+      return of(["error"]); 
+    }));
+  }
+
+  getInvitesConfimation(): Observable<string[]> {
+    let awsurl = "https://3.80.80.145:8000";
+    let localurl = "http://localhost:3000";
+    return this.http.get<string[]>(`${awsurl}/getinvited`).pipe(map((res) => {
+      return res;
+    }), catchError(err => { 
+      return of(["error"]); 
+    }));
+  }
+  getInvitesByCode(code: string): Observable<any> {
+    let awsurl = "https://3.80.80.145:8000";
+    let localurl = "http://localhost:3000";
+    return this.http.post<string[]>(`${awsurl}/getinvitedbycode`, {"invitescode": code}).pipe(map((res) => {
       return res;
     }), catchError(err => { 
       return of(["error"]); 

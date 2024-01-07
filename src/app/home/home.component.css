@@ -70,6 +70,7 @@
     background-size: cover;
     position: relative;
 }
+
 .hero-image2 {
     height: 100%;
     background-position: center;
@@ -81,6 +82,15 @@
 
 .bg-marmol {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/backgrounds/bg-marble.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-lasrocas {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/backgrounds/bg-lasrocas.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -143,4 +153,17 @@
     position: absolute;
     bottom: 0;
     align-items: center;
+}
+
+.button-golden-yes {
+    background-color: #a38548;
+    border-color: #a38548;
+    width: 200px;
+}
+
+.button-golden-no {
+    background-color: whitesmoke;
+    border-color: #a38548;
+    width: 200px;
+    color: #b1944f;
 }

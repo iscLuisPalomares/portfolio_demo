@@ -61,17 +61,17 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrollTargetLugarCeremonia') scrollTargetLugarCeremonia: ElementRef | undefined;
   @ViewChild('scrollTargetCelebracion') scrollTargetCelebracion: ElementRef | undefined;
   @ViewChild('scrollTargetConfirmarAsistencia') scrollTargetConfirmarAsistencia: ElementRef | undefined;
+  @ViewChild('scrollTargetLasRocas') scrollTargetLasRocas: ElementRef | undefined;
 
-  urlBackend = "http://192.168.1.70:3000/"
   alreadyshown = false;
   storiesList: any = [];
   isMobile: boolean = false;
   content: ContentsService;
   invitesname: string = "";
-  invitesMap: any = [
-    { "code": "io22a", "name": "Samuel y Andrea" },
-    { "code": "io22b", "name": "Lupe y Adan" }
-  ]
+  maxinvites: number = 1;
+  invitescode: string = '';
+  howmany: number = 1;
+
 
   constructor(private el: ElementRef, content: ContentsService, private route: ActivatedRoute) {
     this.content = content;
@@ -81,13 +81,13 @@ export class HomeComponent implements OnInit {
     this.checkScreenSize();
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
-        let queryparams =  this.invitesMap.filter((obj: any) => {
-          return obj['code'] == params['invitescode'];
+        console.log("checking query params");
+        this.invitescode = params['invitescode'];
+        this.content.getInvitesByCode(params['invitescode']).subscribe((response)=> {
+          console.log(response);
+          this.invitesname = response['names'];
+          this.maxinvites = response['max']
         });
-        console.log(queryparams);
-        this.invitesname = (queryparams.length > 0)? queryparams[0]['name']:'default';
-        console.log(this.invitesname); // price
       }
       );
   }
@@ -99,9 +99,6 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.createIntersectionObserver();
-    // const ournames = this.el.nativeElement.querySelector('#idtitletext');
-    // ournames.classList.remove('clearcolor');
-    // ournames.classList.add('whitecolor');
   }
 
   private checkScreenSize(): void {
@@ -144,6 +141,7 @@ export class HomeComponent implements OnInit {
     observerWhiteText.observe(this.scrollTargetFecha?.nativeElement);
     observerWhiteText.observe(this.scrollTargetAgradecimientos?.nativeElement);
     observerWhiteText.observe(this.scrollTargetCelebracion?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetLasRocas?.nativeElement);
 
     observerBlackText.observe(this.scrollTargetBendicion?.nativeElement);
     observerBlackText.observe(this.scrollTargetPadresLuis?.nativeElement);
@@ -167,22 +165,18 @@ export class HomeComponent implements OnInit {
     target.classList.add('goldcolor');
   }
 
-  private getWho(): string {
-    let invitesName: string;
-    invitesName = "";
-
-    return invitesName;
-  }
-
-  sivoy() {
-    // alert("enviar datos si voy");
-    this.content.postInvitesConfimation(this.getWho(), true).subscribe((value) => {
+  confirmar(isgoing: boolean) {
+    this.content.postInvitesConfimation(this.invitescode, isgoing, this.howmany).subscribe((value) => {
       console.log(value);
+      if (value['status'] == 'saved' && isgoing) {
+        alert(`Confirmado para ${this.howmany}`);
+      }
+      if (value['status'] == 'saved' && !isgoing) {
+        alert(`Gracias por notificarnos.`);
+      }
+      if (value['status'] == 'not saved') {
+        alert('Hubo un problema al guardar confirmacion. Intente de nuevo mas tarde.');
+      }
     });
   }
-
-  novoy() {
-    alert("enviar datos no voy");
-  }
-
 }

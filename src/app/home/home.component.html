@@ -125,10 +125,6 @@
   </div>
   <div class="col-xs-12 bg-hoja">
     <div class="container text-center">
-      <!-- <img src="/assets/images/location.png" class="img-fluid img-thumbnail" alt="location"> -->
-      <!-- <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAqqOfdeavJUQJHWB9SqylNA1Y-W_NQX6o&q=Space+Needle,Seattle+WA">
-      </iframe> -->
       <div class="">
         <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.004915444005!2d-117.05689812431454!3d32.33857760626316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d931c0353aa23b%3A0x42f7a96da55c68df!2sIglesia%20Nuestra%20Sra.%20del%20Rosario%20de%20Fatima!5e0!3m2!1sen!2smx!4v1702436982962!5m2!1sen!2smx"
@@ -144,16 +140,25 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-12 text-center bg-hoja tallsection">
-    <h2>LAS ROCAS</h2>
-    <img src="/assets/images/lasrocas.png" class="img-fluid" alt="lasrocas">
+  <div class="bg-lasrocas tallsection">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div #scrollTargetLasRocas class="col-xs-12 bigfont nicefont clearcolor">
+        <div class="col-xs-12">Las Rocas</div>
+      </div>
+    </div>
   </div>
   <div class="bg-hoja tallsection">
     <div class="position-absolute top-50 start-50 translate-middle">
       <div #scrollTargetConfirmarAsistencia class="col-xs-12 bigfont nicefont clearcolor">
         <div class="col-xs-12">Confirmar asistencia {{invitesname}}</div>
-        <div class="btn btn-success" (click)="sivoy()">SI</div>
-        <div class="btn btn-danger" (click)="novoy()">NO</div>
+        <div class="col-xs-6">
+          <select class="form-select form-select-sm" aria-label="Default select example" [(ngModel)]="howmany">
+            <option value="1">Uno</option>
+            <option value="2">Dos</option>
+          </select>
+        </div>
+        <div class="btn btn-success button-golden-yes" (click)="confirmar(true)">Si</div>
+        <div class="btn btn-danger button-golden-no" (click)="confirmar(false)">No</div>
       </div>
     </div>
   </div>
