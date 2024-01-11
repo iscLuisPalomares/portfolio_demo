@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { getBackEndUrl } from 'src/main';
 
 @Component({
@@ -8,11 +9,17 @@ import { getBackEndUrl } from 'src/main';
 })
 export class AboutmeComponent {
   backendUrl: string = "";
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     // document.location.href = 'https://3.80.80.145:8000/validate';
   }
   ngOnInit() {
-    document.location.href = 'https://3.80.80.145:8000/validate';
+    this.route.queryParams
+      .subscribe(params => {
+        console.log("checking query params");
+        let invitescode = params['invitescode'];
+        document.location.href = `https://3.80.80.145:8000/validate/${invitescode}`;
+      }
+      );
     // this.backendUrl = getBackEndUrl();
   }
 }
