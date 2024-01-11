@@ -33,6 +33,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // import { DbsmanagerComponent } from './fetch-data/mongodbs/dbsmanager/dbsmanager.component';
 import { StoreModule } from '@ngrx/store';
 import { loginReducer } from './ngrx/login.reducer';
+import { AboutmeComponent } from './home/aboutme/aboutme.component';
 // import { AboutmeComponent } from './home/aboutme/aboutme.component';
 // import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 // import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
@@ -100,6 +101,8 @@ export function tokenGetter() {
     SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
+      { path: 'validate', component: AboutmeComponent },
+      // { path: 'chat', component: ChatComponent },
       // { path: 'nafta', component: NaftaComponent, canActivate: [AuthGuard] },
       // { path: 'charts', component: ChartsComponent, canActivate: [AuthGuard] },
       // { path: 'newcontent', component: NewContentComponent, canActivate: [AuthGuard] },

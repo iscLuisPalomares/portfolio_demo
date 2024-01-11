@@ -8,8 +8,11 @@ import { getBackEndUrl } from 'src/main';
 })
 export class AboutmeComponent {
   backendUrl: string = "";
-  constructor() {}
+  constructor() {
+    // document.location.href = 'https://3.80.80.145:8000/validate';
+  }
   ngOnInit() {
-    this.backendUrl = getBackEndUrl();
+    document.location.href = 'https://3.80.80.145:8000/validate';
+    // this.backendUrl = getBackEndUrl();
   }
 }
