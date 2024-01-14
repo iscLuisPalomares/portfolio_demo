@@ -42,17 +42,17 @@ export class ContentsService {
   }
 
   postInvitesConfimation(invitescode: string, isComing: boolean, howmany: number): Observable<any> {
-    let awsurl = "https://3.80.80.145:8000";
+    let awsurl = "https://data.nahuiyluisboda.com.mx";
     let localurl = "http://localhost:3000";
     return this.http.post<string[]>(`${awsurl}/setinvite`, {"code": invitescode, "iscoming": isComing, "howmany": howmany}).pipe(map((res) => {
       return res;
     }), catchError(err => { 
-      return of(["error"]); 
+      return of(["error"]);
     }));
   }
 
   getInvitesConfimation(): Observable<string[]> {
-    let awsurl = "https://3.80.80.145:8000";
+    let awsurl = "https://data.nahuiyluisboda.com.mx";
     let localurl = "http://localhost:3000";
     return this.http.get<string[]>(`${awsurl}/getinvited`).pipe(map((res) => {
       return res;
@@ -61,7 +61,7 @@ export class ContentsService {
     }));
   }
   getInvitesByCode(code: string): Observable<any> {
-    let awsurl = "https://3.80.80.145:8000";
+    let awsurl = "https://data.nahuiyluisboda.com.mx";
     let localurl = "http://localhost:3000";
     return this.http.post<string[]>(`${awsurl}/getinvitedbycode`, {"invitescode": code}).pipe(map((res) => {
       return res;

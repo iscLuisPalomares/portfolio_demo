@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
   maxinvites: number = 1;
   invitescode: string = '';
   howmany: number = 1;
+  isinvitecodedefined: boolean = false;
 
 
   constructor(private el: ElementRef, content: ContentsService, private route: ActivatedRoute) {
@@ -83,10 +84,15 @@ export class HomeComponent implements OnInit {
       .subscribe(params => {
         console.log("checking query params");
         this.invitescode = params['invitescode'];
-        this.content.getInvitesByCode(params['invitescode']).subscribe((response)=> {
+        this.content.getInvitesByCode(params['invitescode']).subscribe((response) => {
           console.log(response);
-          this.invitesname = response['names'];
-          this.maxinvites = response['max']
+          if (response['status'] == 'valid') {
+            this.invitesname = response['names'];
+            this.maxinvites = response['max'];
+            this.isinvitecodedefined = true;
+          }
+        }, (error) => {
+          console.log(error);
         });
       }
       );
@@ -149,7 +155,9 @@ export class HomeComponent implements OnInit {
     observerBlackText.observe(this.scrollTargetPadrinos?.nativeElement);
 
     observerGoldText.observe(this.scrollTargetLugarCeremonia?.nativeElement);
-    observerGoldText.observe(this.scrollTargetConfirmarAsistencia?.nativeElement);
+    if (this.scrollTargetConfirmarAsistencia) {
+      observerGoldText.observe(this.scrollTargetConfirmarAsistencia?.nativeElement);
+    }
   }
 
   private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {
