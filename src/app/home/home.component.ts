@@ -86,11 +86,9 @@ export class HomeComponent implements OnInit {
         this.invitescode = params['invitescode'];
         this.content.getInvitesByCode(params['invitescode']).subscribe((response) => {
           console.log(response);
-          if (response['status'] == 'valid') {
-            this.invitesname = response['names'];
-            this.maxinvites = response['max'];
-            this.isinvitecodedefined = true;
-          }
+          this.invitesname = response['names'];
+          this.maxinvites = response['max'];
+          this.isinvitecodedefined = true;
         }, (error) => {
           console.log(error);
         });
