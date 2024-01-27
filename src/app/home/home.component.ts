@@ -83,17 +83,20 @@ export class HomeComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         console.log("checking query params");
-        this.invitescode = params['invitescode'];
-        this.content.getInvitesByCode(params['invitescode']).subscribe((response) => {
-          console.log(response);
-          this.invitesname = response['names'];
-          this.maxinvites = response['max'];
-          this.isinvitecodedefined = true;
-        }, (error) => {
-          console.log(error);
-        });
-      }
-      );
+        if (params['invitescode']) {
+          this.invitescode = params['invitescode'];
+          this.content.getInvitesByCode(params['invitescode']).subscribe((response) => {
+            console.log(response);
+            this.invitesname = response['names'];
+            this.maxinvites = response['max'];
+            this.isinvitecodedefined = this.invitesname.length > 0;
+          }, (error) => {
+            console.log(error);
+          });
+        } else {
+          console.log("no invitescode detected");
+        }
+      });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -153,9 +156,6 @@ export class HomeComponent implements OnInit {
     observerBlackText.observe(this.scrollTargetPadrinos?.nativeElement);
 
     observerGoldText.observe(this.scrollTargetLugarCeremonia?.nativeElement);
-    if (this.scrollTargetConfirmarAsistencia) {
-      observerGoldText.observe(this.scrollTargetConfirmarAsistencia?.nativeElement);
-    }
   }
 
   private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {

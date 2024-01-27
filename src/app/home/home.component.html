@@ -9,22 +9,37 @@
         <div [@fadeInUpDelayed] class="col-xs-12">&#38;</div>
         <div [@fadeInUpDelayed] class="col-xs-12">Luis G Palomares</div>
       </div>
+      <div>
+        <audio controls>
+          <source src="/assets/audio/arabesque.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
   </div>
   <div class="col-xs-12" *ngIf="isMobile">
     <div id="idMobileCarouselMain" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/assets/images/portrait/img01_min.jpg" class="d-block w-100" alt="img 1">
+          <img src="/assets/images/portrait/carousel_1.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/portrait/img03_min.jpg" class="d-block w-100" alt="img 2">
+          <img src="/assets/images/portrait/carousel_2.jpg" class="d-block w-100" alt="img 2">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/portrait/img04_min.jpg" class="d-block w-100" alt="img 3">
+          <img src="/assets/images/portrait/carousel_3.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/portrait/img05_min.jpg" class="d-block w-100" alt="img 4">
+          <img src="/assets/images/portrait/carousel_4.jpg" class="d-block w-100" alt="img 1">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/portrait/carousel_5.jpg" class="d-block w-100" alt="img 1">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/portrait/carousel_6.jpg" class="d-block w-100" alt="img 1">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/portrait/carousel_7.JPG" class="d-block w-100" alt="img 1">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#idMobileCarouselMain" data-bs-slide="prev">
@@ -41,22 +56,25 @@
     <div id="idCarouselMain" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/assets/images/landscape/img01_min.jpg" class="d-block w-100" alt="img 1">
+          <img src="/assets/images/landscape/carousel_1_ls.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/landscape/img02_min.jpg" class="d-block w-100" alt="img 2">
+          <img src="/assets/images/landscape/carousel_2_ls.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/landscape/img03_min.jpg" class="d-block w-100" alt="img 3">
+          <img src="/assets/images/landscape/carousel_3_ls.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/landscape/img04_min.jpg" class="d-block w-100" alt="img 4">
+          <img src="/assets/images/landscape/carousel_4_ls.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/landscape/img05_min.jpg" class="d-block w-100" alt="img 5">
+          <img src="/assets/images/landscape/carousel_5_ls.jpg" class="d-block w-100" alt="img 1">
         </div>
         <div class="carousel-item">
-          <img src="/assets/images/landscape/img06_min.jpg" class="d-block w-100" alt="img 6">
+          <img src="/assets/images/landscape/carousel_6_ls.jpg" class="d-block w-100" alt="img 1">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/landscape/carousel_7_ls.JPG" class="d-block w-100" alt="img 1">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#idCarouselMain" data-bs-slide="prev">
@@ -148,8 +166,8 @@
     </div>
   </div>
   <div class="bg-hoja tallsection">
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div #scrollTargetConfirmarAsistencia class="col-xs-12 bigfont nicefont clearcolor">
+    <div class="position-absolute top-50 start-50 translate-middle" *ngIf="isinvitecodedefined">
+      <div class="col-xs-12 bigfont nicefont goldcolor">
         <div class="col-xs-12">Confirmar asistencia {{invitesname}}</div>
         <div class="col-xs-6">
           <select class="form-select form-select-sm" aria-label="Default select example" [(ngModel)]="howmany">
