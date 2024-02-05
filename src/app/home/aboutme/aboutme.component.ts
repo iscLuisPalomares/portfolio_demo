@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit, ElementRef, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContentsService } from 'src/app/services/contents.service';
 import { getBackEndUrl } from 'src/main';
 
 @Component({
@@ -8,18 +10,35 @@ import { getBackEndUrl } from 'src/main';
   styleUrls: ['./aboutme.component.scss']
 })
 export class AboutmeComponent {
-  backendUrl: string = "";
-  constructor(private route: ActivatedRoute) {
-    // document.location.href = 'https://3.80.80.145:8000/validate';
+  content: ContentsService;
+  countcoming: number = 0;
+  invitedcoming: invited[] = [];
+  invitednotcoming: invited[] = [];
+  constructor(private route: ActivatedRoute, content: ContentsService) {
+    this.content = content;
   }
   ngOnInit() {
-    this.route.queryParams
-      .subscribe(params => {
-        console.log("checking query params");
-        let invitescode = params['invitescode'];
-        document.location.href = `https://3.80.80.145:8000/validate/${invitescode}`;
-      }
-      );
-    // this.backendUrl = getBackEndUrl();
+    this.content.getInvitesConfimation().subscribe((response: invited[]) => {
+      console.log(response);
+      this.invitedcoming = response.filter((invited, index, arr) => {
+        if (invited["iscoming"] == true) {
+          this.countcoming += invited["howmany"];
+        }
+        return invited["iscoming"] == true;
+      });
+      this.invitednotcoming = response.filter((invited, index, arr) => invited["iscoming"] == false);
+      console.log(this.invitedcoming);
+      console.log(this.invitednotcoming);  
+    }, (error) => {
+      console.log(error);
+    });
   }
+}
+
+interface invited {
+  invitescode: string,
+  names: string,
+  iscoming: boolean,
+  max: number,
+  howmany: number
 }

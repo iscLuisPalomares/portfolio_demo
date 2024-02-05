@@ -23,44 +23,48 @@
 }
 
 .bigfont {
-    font-size: 7vw;
-}
-
-.mediumfont {
     font-size: 5vw;
 }
 
-@media (min-width: 600px) {
-    .bigfont {
-        font-size: 45px;
-    }
+.section-header-font-size {
+    font-size: 7vw;
+}
 
-    .mediumfont {
-        font-size: 33px;
-    }
+.header-margin {
+    margin-top: 200px;
+}
+
+.audio-margin {
+    margin-top: 100px;
+}
+
+.countdown-box {
+    margin-top: 100px;
+    height: 1in;
+    background-color: #b1944f99;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.timestamp-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+.tinyfont {
+    font-size: 20px;
+}
+
+.savethedate {
+    margin-top: 50px;
+}
+
+.mediumfont {
+    font-size: 3vw;
 }
 
 .monofont {
     font-family: 'Courier New', Courier, monospace;
-}
-
-@media (min-width: 200px) {
-    .hero-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture.jpg");
-    }
-    .hero-image2 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
-    }
-}
-
-@media (min-width: 700px) {
-    .hero-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture.jpg");
-        /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/PRX_0184.JPG"); */
-    }
-    .hero-image2 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
-    }
 }
 
 .hero-image {
@@ -69,7 +73,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    position: relative;
+    /* position: relative; */
 }
 
 .hero-image2 {
@@ -114,6 +118,42 @@
     height: 7in;
 }
 
+.tallsection2 {
+    height: 10in;
+}
+
+.smallsection {
+    height: 1in;
+}
+
+.ceremoniareligiosa-box {
+    margin-top: 1in;
+    padding-top: 10px;
+    height: 3in;
+    width: 5in;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/landscape/parroquia.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.fiesta-box {
+    margin-top: 1in;
+    padding-top: 10px;
+    height: 3in;
+    width: 5in;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/backgrounds/bg-lasrocas2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.headerheight {
+    height: 10in;
+}
+
 .section {
     height: 3.5in;
 }
@@ -128,18 +168,6 @@
     border: 2px solid #b1944f;
     height: 90%;
     margin: 10px 10px 10px 10px;
-}
-
-@media (min-width: 200px) {
-    .gold-border {
-        width: 90%;
-    }
-}
-
-@media (min-width: 700px) {
-    .gold-border {
-        width: 600px;
-    }
 }
 
 .img-invitacion {
@@ -169,4 +197,57 @@
     border-color: #a38548;
     width: 200px;
     color: #b1944f;
+}
+
+.button-external-link {
+    background-color: #a38548;
+    border-color: #a38548;
+    width: 200px;
+    border-radius: 25px;
+}
+
+@media (min-width: 200px) {
+    .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture_scaled.jpg");
+    }
+    .hero-image2 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
+    }
+    .countdown-box {
+        font-size: 9vw;
+    }
+    .tinyfont {
+        font-size: 3vw;
+    }
+    .gold-border {
+        width: 90%;
+    }
+}
+
+@media (min-width: 600px) {
+    .tinyfont {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 700px) {
+    .gold-border {
+        width: 600px;
+    }
+    .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture.jpg");
+        /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/PRX_0184.JPG"); */
+    }
+    .hero-image2 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
+    }
+}
+
+@media (min-width: 800px) {
+    .bigfont {
+        font-size: 55px;
+    }
+    .mediumfont {
+        font-size: 33px;
+    }
 }

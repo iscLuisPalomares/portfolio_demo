@@ -1,4 +1,46 @@
-<a href="https://nahuiyluisboda.com.mx/home">.</a>
+<div class="container">
+  <h2>resumen</h2>
+  <h3>total confimados: {{countcoming}}</h3>
+  <h3>los que si vienen</h3>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr class="">
+          <th scope="col">#</th>
+          <th scope="col">persona</th>
+          <th scope="col">cuantos invitados vienen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invite of this.invitedcoming; index as i;">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{invite["names"]}}</td>
+          <td>{{invite["howmany"]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <h3>los que no vienen</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">persona</th>
+          <th scope="col">cuantos invitados maximo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invite of this.invitednotcoming; index as i;">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{invite["names"]}}</td>
+          <td>{{invite["max"]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
 <!-- <div class="container">
     <div class="row">
         <div class="col-xs-12 col-lg-4">

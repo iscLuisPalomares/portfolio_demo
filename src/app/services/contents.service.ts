@@ -51,7 +51,7 @@ export class ContentsService {
     }));
   }
 
-  getInvitesConfimation(): Observable<string[]> {
+  getInvitesConfimation(): Observable<any[]> {
     let awsurl = "https://data.nahuiyluisboda.com.mx";
     let localurl = "http://localhost:3000";
     return this.http.get<string[]>(`${awsurl}/getinvited`).pipe(map((res) => {

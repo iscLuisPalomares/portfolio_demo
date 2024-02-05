@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //import { JwtConfig, JwtInterceptor } from '@auth0/angular-jwt/auth0-angular-jwt';
 // import { JwtModule } from '@auth0/angular-jwt/auth0-angular-jwt';
-import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,7 +22,7 @@ import { HomeComponent } from './home/home.component';
 // import { FetchDataComponent } from './fetch-data/fetch-data.component';
 // import { ProdMonitorComponent } from './mfg/prod-monitor/prod-monitor.component';
 
-import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
+// import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
 // import { ChatComponent } from './sockets/chat/chat.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // import { LoginformComponent } from './login/loginform/loginform.component';
@@ -34,6 +33,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { StoreModule } from '@ngrx/store';
 import { loginReducer } from './ngrx/login.reducer';
 import { AboutmeComponent } from './home/aboutme/aboutme.component';
+import { CommonModule } from '@angular/common';
 // import { AboutmeComponent } from './home/aboutme/aboutme.component';
 // import { ComingsoonComponent } from './home/comingsoon/comingsoon.component';
 // import { BlackjackComponent } from './home/minigames/blackjack/blackjack.component';
@@ -64,6 +64,7 @@ export function tokenGetter() {
     AppComponent,
     // NavMenuComponent,
     HomeComponent,
+    AboutmeComponent,
     // CounterComponent,
     // FetchDataComponent,
     // StrToMathPipe,
@@ -89,19 +90,18 @@ export function tokenGetter() {
   imports: [
     // NgDragDropModule.forRoot(),
     BrowserModule,
-    CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right'}),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    DxButtonModule,
-    DxDataGridModule,
+    // DxButtonModule,
+    // DxDataGridModule,
     HttpClientModule,
     SocketIoModule.forRoot(config),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: 'validate', component: AboutmeComponent },
+      { path: 'invitesresume', component: AboutmeComponent },
       // { path: 'chat', component: ChatComponent },
       // { path: 'nafta', component: NaftaComponent, canActivate: [AuthGuard] },
       // { path: 'charts', component: ChartsComponent, canActivate: [AuthGuard] },
@@ -120,6 +120,7 @@ export function tokenGetter() {
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ]),
     StoreModule.forRoot({ loginstate: loginReducer }),
+    CommonModule,
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtinterceptorService, multi: true },
