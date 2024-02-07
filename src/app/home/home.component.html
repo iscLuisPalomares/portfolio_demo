@@ -1,92 +1,105 @@
 <div class="row">
   <div class="hero-image headerheight">
-    <div class="container">
-      <div class="header-margin">
-        <div class="text-center">
-          <div [@fadeInOut] class="mediumfont monofont whitecolor">NUESTRA BODA</div>
-          <div [@fadeInUpDelayed] class="bigfont nicefont whitecolor">Nahui Torres &#38; Luis G Palomares</div>  
-          <div class="audio-margin">
-            <audio controls>
-              <source src="https://data.nahuiyluisboda.com.mx/static/arabesque.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
+    <div class="header-margin text-center">
+      <div [@fadeInUpDelayed] class="d-flex justify-content-center">
+        <div class="col-12 col-md-9 col-lg-6">
+          <img src="/assets/images/vectors/titulo1.svg" alt="">
+        </div>
+      </div>
+      <div class="audio-margin">
+        <audio controls>
+          <source src="https://data.nahuiyluisboda.com.mx/static/arabesque.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div [@fadeInUpDelayed] class="d-flex justify-content-evenly countdown-box">
+        <div class="position-relative">
+          <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
+            {{this.days}}
+            <div class="tinyfont whitecolor">dias</div>
           </div>
-          <div class="d-flex justify-content-evenly countdown-box">
-            <div class="position-relative">
-              <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
-                {{this.days}}
-                <div class="tinyfont whitecolor">dias</div>
-              </div>
-            </div>
-            <div class="position-relative">
-              <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
-                {{this.hours}}
-                <div class="tinyfont whitecolor">horas</div>
-              </div>
-            </div>
-            <div class="position-relative">
-              <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
-                {{this.minutes}}
-                <div class="tinyfont whitecolor">minutos</div>
-              </div>
-            </div>
-            <div class="position-relative">
-              <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
-                {{this.seconds}}
-                <div class="tinyfont whitecolor">segundos</div>
-              </div>
-            </div>
+        </div>
+        <div class="position-relative">
+          <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle ">
+            {{this.hours}}
+            <div class="tinyfont whitecolor">horas</div>
           </div>
-          <div class="savethedate whitecolor monofont bigfont">
-            08.06
+        </div>
+        <div class="position-relative">
+          <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
+            {{this.minutes}}
+            <div class="tinyfont whitecolor">minutos</div>
+          </div>
+        </div>
+        <div class="position-relative">
+          <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
+            {{this.seconds}}
+            <div class="tinyfont whitecolor">segundos</div>
+          </div>
+        </div>
+      </div>
+      <div class="savethedate whitecolor monofont bigfont">
+        08.06
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="row">
+  <div class="bg-hoja smallsection">
+    <div class="col-12 col-md-6 col-lg-12">
+      <div class="position-relative">
+        <div class="position-absolute bottom-0 start-50 translate-middle-x">
+          <div #scrollTargetLugarYFecha class="nicefont section-header-font-size goldcolor">
+            Lugar & Fecha
           </div>
         </div>
       </div>
     </div>
   </div>
+</div> -->
+<!-- <div class="row bg-hoja smallsection">
+  <div class="text-center nicefont goldcolor goldfontsize">Lugar & Fecha</div>
+</div> -->
+<div class="row">
   <div class="bg-hoja tallsection2">
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div #scrollTargetLugarYFecha class="col-xs-12 nicefont section-header-font-size goldcolor text-center">
-        Lugar & Fecha
-      </div>
-      <div #scrollTargetParroquia class="ceremoniareligiosa-box">
-        <div class="text-center">
-          <div class="col-xs-12">
-            <img src="/assets/images/vectors/church.svg" alt="Ceremonia" height="100" width="100">
-          </div>
-          <div class="col-xs-12">
-            CEREMONIA RELIGIOSA
-          </div>
-          <div class="col-xs-12">
-            Parroquia Nuestra Sra. Del Rosario De Fatima
-          </div>
-          <div class="col-xs-12">
-            <a href="https://maps.app.goo.gl/EGnTfQaVVc1vsWBp7" 
-            class="btn btn-primary button-external-link" 
-            role="button" target="_blank">Ver Ubicacion</a>
+    <div class="col-12">
+      <div class="text-center nicefont goldcolor goldfontsize">Lugar & Fecha</div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="ceremoniareligiosa-box position-relative">
+          <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="text-center">
+              CEREMONIA RELIGIOSA
+              <br>
+              Parroquia Nuestra Sra. Del Rosario De Fatima
+              <br>
+              <a href="https://maps.app.goo.gl/EGnTfQaVVc1vsWBp7" 
+              class="btn btn-primary button-external-link" 
+              role="button" target="_blank">Ver Ubicacion</a>
+            </div>
           </div>
         </div>
       </div>
-      <div #scrollTargetCelebracionFiesta class="fiesta-box">
-        <div class="text-center">
-          <div class="col-xs-12">
-            <img src="/assets/images/vectors/cheers.svg" alt="Ceremonia" height="100" width="100">
-          </div>
-          <div class="col-xs-12">
-            CELEBRACION
-          </div>
-          <div class="col-xs-12">
-            Las Rocas Resort and spa
-          </div>
-          <div class="col-xs-12">
-            <a href="https://maps.app.goo.gl/dJAYNYH3uRDWWPpa6" 
-            class="btn btn-primary button-external-link" 
-            role="button" target="_blank">Ver Ubicacion</a>
+      <div class="col-12 col-lg-6">
+        <div class="fiesta-box position-relative">
+          <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="text-center">
+              CELEBRACION
+              <br>
+              Las Rocas Resort and spa
+              <br>
+              <a href="https://maps.app.goo.gl/dJAYNYH3uRDWWPpa6" 
+              class="btn btn-primary button-external-link" 
+              role="button" target="_blank">Ver Ubicacion</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="row">
   <div class="bg-marmol tallsection">
     <div class="position-absolute top-50 start-50 translate-middle">
       <div #scrollTargetReglas class="col-xs-12 bigfont nicefont clearcolor">
@@ -96,6 +109,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row">
   <div class="col-xs-12">
     <div class="bg-hoja tallsection">
       <div class="position-absolute top-50 start-50 translate-middle gold-border">
@@ -125,6 +140,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row">
   <div class="bg-marmol tallsection">
     <div class="position-absolute top-50 start-50 translate-middle">
       <div #scrollTargetAgradecimientos class="col-xs-12 bigfont nicefont clearcolor">
@@ -134,10 +151,8 @@
       </div>
     </div>
   </div>
-  <div class="hero-image2 tallsection">
-    <div class="bigfont nicefont">
-    </div>
-  </div>
+</div>
+<div class="row">
   <div class="bg-hoja tallsection">
     <div class="position-absolute top-50 start-50 translate-middle" *ngIf="isinvitecodedefined">
       <div class="col-xs-12 bigfont nicefont goldcolor">

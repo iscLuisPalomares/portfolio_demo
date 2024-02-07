@@ -23,7 +23,7 @@
 }
 
 .bigfont {
-    font-size: 5vw;
+    font-size: 13vw;
 }
 
 .section-header-font-size {
@@ -31,7 +31,7 @@
 }
 
 .header-margin {
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 .audio-margin {
@@ -126,11 +126,14 @@
     height: 1in;
 }
 
+.goldfontsize {
+    font-size: 5vw;
+}
+
 .ceremoniareligiosa-box {
     margin-top: 1in;
     padding-top: 10px;
     height: 3in;
-    width: 5in;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/landscape/parroquia.jpeg");
     background-position: center;
     background-repeat: no-repeat;
@@ -142,7 +145,6 @@
     margin-top: 1in;
     padding-top: 10px;
     height: 3in;
-    width: 5in;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/backgrounds/bg-lasrocas2.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -151,7 +153,7 @@
 }
 
 .headerheight {
-    height: 10in;
+    height: in;
 }
 
 .section {
@@ -207,6 +209,9 @@
 }
 
 @media (min-width: 200px) {
+    .goldfontsize {
+        font-size: 50pt;
+    }
     .hero-image {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture_scaled.jpg");
     }
