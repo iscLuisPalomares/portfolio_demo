@@ -6,7 +6,7 @@
           <img src="/assets/images/vectors/titulo1.svg" alt="">
         </div>
       </div>
-      <div class="audio-margin">
+      <div [@fadeInUpDelayed] class="audio-margin">
         <audio controls>
           <source src="https://data.nahuiyluisboda.com.mx/static/arabesque.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
@@ -47,13 +47,13 @@
 <div class="row">
   <div class="bg-hoja sectionspacing">
     <div class="col-12">
-      <div class="text-center nicefont goldcolor goldfontsize">Lugar & Fecha</div>
+      <div #scrollTargetLugarYFecha class="text-center nicefont goldcolor goldfontsize">Lugar & Fecha</div>
     </div>
     <div class="row">
       <div class="col-12 col-lg-6">
         <div class="ceremoniareligiosa-box position-relative">
           <div class="position-absolute top-50 start-50 translate-middle">
-            <div class="text-center">
+            <div #scrollTargetCeremoniaReligiosa class="text-center">
               CEREMONIA RELIGIOSA
               <br>
               Parroquia Nuestra Sra. Del Rosario De Fatima
@@ -68,7 +68,7 @@
       <div class="col-12 col-lg-6">
         <div class="fiesta-box position-relative">
           <div class="position-absolute top-50 start-50 translate-middle">
-            <div class="text-center">
+            <div #scrollTargetCelebracion class="text-center">
               CELEBRACION
               <br>
               Las Rocas Resort and spa
@@ -86,7 +86,7 @@
 <div class="row">
   <div class="bg-marmol sectionspacing">
     <div class="row">
-      <div class="col-12 col-md-6 rule-box text-center sectionspacing">
+      <div #scrollTargetDressCode class="col-12 col-md-6 rule-box text-center sectionspacing">
         <div class="col-12">
           <img src="/assets/images/vectors/formal2.svg" alt="" height="60pt">
         </div>
@@ -97,7 +97,7 @@
           Etiqueta Rigurosa. Mujeres: Vestido de Noche. Hombres: Traje y Zapatos.
         </div>
       </div>
-      <div class="col-12 col-md-6 rule-box text-center sectionspacing">
+      <div #scrollTargetColorCode class="col-12 col-md-6 rule-box text-center sectionspacing">
         <div class="col-12">
           <img src="/assets/images/vectors/color-palette.svg" alt="" height="60pt">
         </div>
@@ -113,7 +113,7 @@
           <div class="col-1 pastel-azul pastel-box"></div>
         </div>
       </div>
-      <div class="col-12 col-md-6 rule-box text-center sectionspacing">
+      <div #scrollTargetColorForbidden class="col-12 col-md-6 rule-box text-center sectionspacing">
         <div class="col-12">
           <img src="/assets/images/vectors/forbidden.svg" alt="" height="60pt">
         </div>
@@ -124,11 +124,10 @@
           <div class="col-1 color-hueso pastel-box"></div>
           <div class="col-1 color-khaki pastel-box"></div>
           <div class="col-1 color-perla pastel-box"></div>
-          <div class="col-1 color-negro pastel-box"></div>
           <div class="col-1 color-blanco pastel-box"></div>
         </div>
       </div>
-      <div class="col-12 col-md-6 rule-box text-center sectionspacing">
+      <div #scrollTargetNoChildren class="col-12 col-md-6 rule-box text-center sectionspacing">
         <div class="col-12">
           <img src="/assets/images/vectors/nokids.svg" alt="" height="60pt">
         </div>
@@ -144,23 +143,30 @@
     <div class="bg-hoja tallsection">
       <div class="position-absolute top-50 start-50 translate-middle gold-border">
         <div class="col-xs-12 mediumfont monofont goldcolor text-center">
-          <img src="/assets/icons/nombres.png" class="img-invitacion" alt="NyL">
+          <img src="/assets/images/vectors/titulo2.svg" class="img-invitacion" alt="NyL" height="200pt">
           <div #scrollTargetBendicion class="font-invitacion clearcolor">Con la bendicion de nuestros padres y nuestras
             familias, hemos decidido juntarnos en matrimonio.</div>
         </div>
         <div class="col-xs-12 text-center">
           <div class="row">
-            <div #scrollTargetPadresLuis class="col blackcolor font-invitacion">Sonia Ramos y Luis Palomares Padres del Novio</div>
-            <div #scrollTargetPadresNahui class="col blackcolor font-invitacion">Esther Ochoa y Luis Torres Padres de la Novia</div>
+            <div #scrollTargetPadresLuis class="col blackcolor font-invitacion">Sonia Ramos y Luis Palomares</div>
+            <div #scrollTargetPadresNahui class="col blackcolor font-invitacion">Esther Ochoa y Luis Torres</div>
           </div>
         </div>
-        <div class="col-xs-12 mediumfont monofont blackcolor text-center">
+        <div class="col-12 mediumfont monofont blackcolor text-center">
           <div #scrollTargetPadrinos class="col blackcolor font-invitacion">
-            Guadalupe Ramos y Adan Hernandez
-            <br>
-            Angelica Ramos
-            <br>
-            Padrinos
+            <div class="col-12">
+              Padrinos
+            </div>
+            <div class="col-12">
+              Guadalupe Ramos y Adan Hernandez
+            </div>
+            <div class="col-12">
+              Angelica Ramos
+            </div>
+            <div class="col-12">
+              Luz Ramos y Angel Vega
+            </div>
           </div>
         </div>
         <div class="position-fixed bottom-0 start-50 translate-middle-x" style="margin-bottom: 5px;">
@@ -171,13 +177,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="bg-marmol tallsection">
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div #scrollTargetAgradecimientos class="col-xs-12 bigfont nicefont clearcolor">
-        <div class="col-xs-12">Nuestro mejor regalo es su presencia pero si de sus corazones nace, pueden apoyarnos
-          mediante una contribucion monetaria.</div>
-        <div class="col-xs-12">HSBC</div>
-      </div>
+  <div class="bg-marmol text-center sectionspacing">
+    <div #scrollTargetAgradecimientos class="col-xs-12 giftsfontsize nicefont clearcolor">
+      <div class="col-xs-12">Nuestro mejor regalo es su presencia pero si deseas ofrecernos un detalle adicional puedes realizar una transferencia a la cuenta de abajo:</div>
+      <div class="col-xs-12">HSBC</div>
     </div>
   </div>
 </div>

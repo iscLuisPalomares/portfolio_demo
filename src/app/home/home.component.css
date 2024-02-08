@@ -257,6 +257,9 @@
 .color-blanco {
     background-color: #ffffff;
 }
+.giftsfontsize {
+    font-size: 30pt;
+}
 
 @media (min-width: 200px) {
     .goldfontsize {

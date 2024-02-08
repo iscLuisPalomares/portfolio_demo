@@ -52,17 +52,25 @@ import { ActivatedRoute } from '@angular/router';
   ],
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('scrollTargetReglas') scrollTargetReglas: ElementRef | undefined;
+  // @ViewChild('scrollTargetReglas') scrollTargetReglas: ElementRef | undefined;
+  @ViewChild('scrollTargetConfirmarAsistencia') scrollTargetConfirmarAsistencia: ElementRef | undefined;
+  // @ViewChild('scrollTargetParroquia') scrollTargetParroquia: ElementRef | undefined;
+  // @ViewChild('scrollTargetCelebracionFiesta') scrollTargetCelebracionFiesta: ElementRef | undefined;
+  
+
+  @ViewChild('scrollTargetAgradecimientos') scrollTargetAgradecimientos: ElementRef | undefined;
   @ViewChild('scrollTargetBendicion') scrollTargetBendicion: ElementRef | undefined;
   @ViewChild('scrollTargetPadresLuis') scrollTargetPadresLuis: ElementRef | undefined;
   @ViewChild('scrollTargetPadresNahui') scrollTargetPadresNahui: ElementRef | undefined;
   @ViewChild('scrollTargetPadrinos') scrollTargetPadrinos: ElementRef | undefined;
-  @ViewChild('scrollTargetAgradecimientos') scrollTargetAgradecimientos: ElementRef | undefined;
-  @ViewChild('scrollTargetConfirmarAsistencia') scrollTargetConfirmarAsistencia: ElementRef | undefined;
   @ViewChild('scrollTargetLugarYFecha') scrollTargetLugarYFecha: ElementRef | undefined;
-  @ViewChild('scrollTargetParroquia') scrollTargetParroquia: ElementRef | undefined;
-  @ViewChild('scrollTargetCelebracionFiesta') scrollTargetCelebracionFiesta: ElementRef | undefined;
-
+  @ViewChild('scrollTargetCeremoniaReligiosa') scrollTargetCeremoniaReligiosa: ElementRef | undefined;
+  @ViewChild('scrollTargetCelebracion') scrollTargetCelebracion: ElementRef | undefined;
+  @ViewChild('scrollTargetDressCode') scrollTargetDressCode: ElementRef | undefined;
+  @ViewChild('scrollTargetColorCode') scrollTargetColorCode: ElementRef | undefined;
+  @ViewChild('scrollTargetColorForbidden') scrollTargetColorForbidden: ElementRef | undefined;
+  @ViewChild('scrollTargetNoChildren') scrollTargetNoChildren: ElementRef | undefined;
+  
   alreadyshown = false;
   storiesList: any = [];
   isMobile: boolean = false;
@@ -188,18 +196,21 @@ export class HomeComponent implements OnInit {
       });
     }, options);
 
-    observerWhiteText.observe(this.scrollTargetReglas?.nativeElement);
+    // observerWhiteText.observe(this.scrollTargetReglas?.nativeElement);
     observerWhiteText.observe(this.scrollTargetAgradecimientos?.nativeElement);
-    observerWhiteText.observe(this.scrollTargetCelebracionFiesta?.nativeElement);
-    observerWhiteText.observe(this.scrollTargetParroquia?.nativeElement);
-    
+    observerWhiteText.observe(this.scrollTargetCelebracion?.nativeElement);
+    // observerWhiteText.observe(this.scrollTargetParroquia?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetCeremoniaReligiosa?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetDressCode?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetColorCode?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetColorForbidden?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetNoChildren?.nativeElement);
     
     observerGoldText.observe(this.scrollTargetPadrinos?.nativeElement);
     observerGoldText.observe(this.scrollTargetPadresNahui?.nativeElement);
     observerGoldText.observe(this.scrollTargetPadresLuis?.nativeElement);
     observerGoldText.observe(this.scrollTargetBendicion?.nativeElement);
     observerGoldText.observe(this.scrollTargetLugarYFecha?.nativeElement);
-
   }
 
   private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {
