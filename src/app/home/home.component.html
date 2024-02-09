@@ -47,35 +47,39 @@
 <div class="row">
   <div class="bg-hoja sectionspacing">
     <div class="col-12">
-      <div #scrollTargetLugarYFecha class="text-center nicefont goldcolor goldfontsize">Lugar & Fecha</div>
+      <div #scrollTargetLugarYFecha class="text-center nicefont goldfontsize clearcolor">Lugar & Fecha</div>
     </div>
     <div class="row">
       <div class="col-12 col-lg-6">
-        <div class="ceremoniareligiosa-box position-relative">
+        <div #scrollTargetCeremoniaReligiosa class="ceremoniareligiosa-box position-relative clearcolor">
           <div class="position-absolute top-50 start-50 translate-middle">
-            <div #scrollTargetCeremoniaReligiosa class="text-center">
-              CEREMONIA RELIGIOSA
-              <br>
-              Parroquia Nuestra Sra. Del Rosario De Fatima
-              <br>
-              <a href="https://maps.app.goo.gl/EGnTfQaVVc1vsWBp7" 
-              class="btn btn-primary button-external-link" 
-              role="button" target="_blank">Ver Ubicacion</a>
+            <div class="text-center">
+              <div class="col-12 formalfont">
+                CEREMONIA RELIGIOSA
+              </div>
+              <div class="col-12">
+                Parroquia Nuestra Sra. Del Rosario De Fatima
+                <a href="https://maps.app.goo.gl/EGnTfQaVVc1vsWBp7" 
+                  class="btn btn-primary button-external-link" 
+                  role="button" target="_blank">Ver Ubicación</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-6">
-        <div class="fiesta-box position-relative">
+        <div #scrollTargetCelebracion class="fiesta-box position-relative">
           <div class="position-absolute top-50 start-50 translate-middle">
-            <div #scrollTargetCelebracion class="text-center">
-              CELEBRACION
-              <br>
-              Las Rocas Resort and spa
-              <br>
-              <a href="https://maps.app.goo.gl/dJAYNYH3uRDWWPpa6" 
-              class="btn btn-primary button-external-link" 
-              role="button" target="_blank">Ver Ubicacion</a>
+            <div class="text-center">
+              <div class="col-12 formalfont">
+                CELEBRACIÓN
+              </div>
+              <div class="col-12">
+                Las Rocas Resort and spa
+                <a href="https://maps.app.goo.gl/dJAYNYH3uRDWWPpa6" 
+                  class="btn btn-primary button-external-link" 
+                  role="button" target="_blank">Ver Ubicación</a>
+              </div>
             </div>
           </div>
         </div>
@@ -102,7 +106,7 @@
           <img src="/assets/images/vectors/color-palette.svg" alt="" height="60pt">
         </div>
         <div class="col-12 ruletitle">
-          Codigo de Colores
+          Colors Code
         </div>
         <div class="col-12">
           Pasteles
@@ -139,37 +143,35 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <div class="bg-hoja tallsection">
-      <div class="position-absolute top-50 start-50 translate-middle gold-border">
-        <div class="col-xs-12 mediumfont monofont goldcolor text-center">
+  <div class="bg-hoja sectionspacing">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="gold-border">
+        <div class="col-12 mediumfont monofont goldcolor text-center">
           <img src="/assets/images/vectors/titulo2.svg" class="img-invitacion" alt="NyL" height="200pt">
-          <div #scrollTargetBendicion class="font-invitacion clearcolor">Con la bendicion de nuestros padres y nuestras
+          <div #scrollTargetBendicion class="formalfont content clearcolor">Con la bendicion de nuestros padres y nuestras
             familias, hemos decidido juntarnos en matrimonio.</div>
         </div>
-        <div class="col-xs-12 text-center">
+        <div class="col-12 text-center">
           <div class="row">
-            <div #scrollTargetPadresLuis class="col blackcolor font-invitacion">Sonia Ramos y Luis Palomares</div>
-            <div #scrollTargetPadresNahui class="col blackcolor font-invitacion">Esther Ochoa y Luis Torres</div>
-          </div>
-        </div>
-        <div class="col-12 mediumfont monofont blackcolor text-center">
-          <div #scrollTargetPadrinos class="col blackcolor font-invitacion">
-            <div class="col-12">
-              Padrinos
+            <div #scrollTargetPadresLuis class="col blackcolor font-invitacion">
+              <div class="col-12 nicefont subtitle">Padres del Novio</div>
+              <div class="col-12 formalfont content">Sonia Ramos y Luis Palomares</div>
             </div>
-            <div class="col-12">
-              Guadalupe Ramos y Adan Hernandez
-            </div>
-            <div class="col-12">
-              Angelica Ramos
-            </div>
-            <div class="col-12">
-              Luz Ramos y Angel Vega
+            <div #scrollTargetPadresNahui class="col blackcolor font-invitacion">
+              <div class="col-12 nicefont subtitle">Padres de la Novia</div>
+              <div class="col-12 formalfont content">Esther Ochoa y Luis Torres</div>
             </div>
           </div>
         </div>
-        <div class="position-fixed bottom-0 start-50 translate-middle-x" style="margin-bottom: 5px;">
+        <div class="col-12 subtitle nicefont blackcolor text-center">
+          <div #scrollTargetPadrinos class="col blackcolor">
+            <div class="col-12 nicefont subtitle">Padrinos</div>
+            <div class="col-12 formalfont content">Guadalupe Ramos y Adan Hernandez</div>
+            <div class="col-12 formalfont content">Angelica Ramos</div>
+            <div class="col-12 formalfont content">Luz Ramos y Angel Vega</div>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
           <img src="/assets/icons/icon-top.png" class="img-invitacion" alt="NyL">
         </div>
       </div>
@@ -177,10 +179,17 @@
   </div>
 </div>
 <div class="row">
-  <div class="bg-marmol text-center sectionspacing">
-    <div #scrollTargetAgradecimientos class="col-xs-12 giftsfontsize nicefont clearcolor">
-      <div class="col-xs-12">Nuestro mejor regalo es su presencia pero si deseas ofrecernos un detalle adicional puedes realizar una transferencia a la cuenta de abajo:</div>
-      <div class="col-xs-12">HSBC</div>
+  <div class="bg-marmol sectionspacing">
+    <div #scrollTargetAgradecimientos class="text-center">
+      <div class="col-12 nicefont title whitecolor">Mesa de Regalos</div>
+      <div class="col-12 formalfont content whitecolor">Nuestro mejor regalo es su presencia pero si deseas tener un detalle con nosotros puedes realizar una transferencia:</div>
+      <div class="col-12">
+        <img src="/assets/images/vectors/card.svg" alt="" height="70pt">
+      </div>
+      <div class="col-12 formalfont content whitecolor">SANTANDER</div>
+      <div class="col-12 formalfont content whitecolor">Luis Gerardo Palomares</div>
+      <div class="col-12 formalfont content whitecolor">No. Tarjeta: #### #### #### ####</div>
+      <div class="col-12 formalfont content whitecolor">CLABE: #### #### #### ####</div>
     </div>
   </div>
 </div>

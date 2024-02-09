@@ -87,7 +87,8 @@
 
 .bg-marmol {
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/backgrounds/bg-marble.jpg"); */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/backgrounds/texture.jpg");
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/images/texture.jpg"); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/images/marble_web.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -106,7 +107,9 @@
 }
 
 .bg-hoja {
-    background-image: url("/assets/backgrounds/bg-paper.jpg");
+    /* background-image: url("/assets/backgrounds/bg-paper.jpg"); */
+    /* background-image: url("/assets/backgrounds/bg-paper.jpg"); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/watercolor_web.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -221,7 +224,7 @@
 
 .rule-box {
     color: white;
-    background-image: linear-gradient(rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.3));
+    background-image: linear-gradient(rgba(200, 200, 200, 0.0), rgba(200, 200, 200, 0.0));
 }
 
 .ruletitle {
@@ -260,13 +263,25 @@
 .giftsfontsize {
     font-size: 30pt;
 }
+.subtitle {
+    font-size: 25pt;
+}
+.formalfont {
+    font-family: 'Times New Roman', Times, serif;
+}
+.content {
+    font-size: 15pt;
+}
+.title {
+    font-size: 35pt;
+}
 
 @media (min-width: 200px) {
     .goldfontsize {
         font-size: 40pt;
     }
     .hero-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture_scaled.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture_mobile.jpg");
     }
     .hero-image2 {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
