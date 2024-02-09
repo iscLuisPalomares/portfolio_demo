@@ -71,19 +71,19 @@
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
     /* position: relative; */
 }
 
-.hero-image2 {
+/* .hero-image2 {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     position: relative;
-}
+} */
 
 .bg-marmol {
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/backgrounds/bg-marble.jpg"); */
@@ -282,9 +282,8 @@
     }
     .hero-image {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture_mobile.jpg");
-    }
-    .hero-image2 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/golden.jpg");
+        /* background-image: url("/assets/images/landscape/main_picture_mobile.jpg"); */
+        
     }
     .countdown-box {
         font-size: 9vw;
@@ -309,6 +308,7 @@
     }
     .hero-image {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/main_picture.jpg");
+        /* background-image: url("/assets/images/landscape/main_picture.jpg"); */
         /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0)), url("/assets/images/landscape/PRX_0184.JPG"); */
     }
 }
