@@ -70,6 +70,15 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrollTargetColorCode') scrollTargetColorCode: ElementRef | undefined;
   @ViewChild('scrollTargetColorForbidden') scrollTargetColorForbidden: ElementRef | undefined;
   @ViewChild('scrollTargetNoChildren') scrollTargetNoChildren: ElementRef | undefined;
+  @ViewChild('scrollTargetGaleria') scrollTargetGaleria: ElementRef | undefined;
+
+  @ViewChild('scrollTargetMesaDeRegalos') scrollTargetMesaDeRegalos: ElementRef | undefined;
+  @ViewChild('scrollTargetMesaMensaje') scrollTargetMesaMensaje: ElementRef | undefined;
+  @ViewChild('scrollTargetMesaTarjetaImg') scrollTargetMesaTarjetaImg: ElementRef | undefined;
+  @ViewChild('scrollTargetMesaBanco') scrollTargetMesaBanco: ElementRef | undefined;
+  @ViewChild('scrollTargetMesaNombre') scrollTargetMesaNombre: ElementRef | undefined;
+  @ViewChild('scrollTargetMesaTarjeta') scrollTargetMesaTarjeta: ElementRef | undefined;
+  
   
   alreadyshown = false;
   storiesList: any = [];
@@ -199,6 +208,12 @@ export class HomeComponent implements OnInit {
     // observerWhiteText.observe(this.scrollTargetReglas?.nativeElement);
     observerWhiteText.observe(this.scrollTargetAgradecimientos?.nativeElement);
     observerWhiteText.observe(this.scrollTargetCelebracion?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaDeRegalos?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaMensaje?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaTarjetaImg?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaBanco?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaNombre?.nativeElement);
+    observerWhiteText.observe(this.scrollTargetMesaTarjeta?.nativeElement);
     // observerWhiteText.observe(this.scrollTargetParroquia?.nativeElement);
     observerWhiteText.observe(this.scrollTargetCeremoniaReligiosa?.nativeElement);
     observerWhiteText.observe(this.scrollTargetDressCode?.nativeElement);
@@ -211,6 +226,8 @@ export class HomeComponent implements OnInit {
     observerGoldText.observe(this.scrollTargetPadresLuis?.nativeElement);
     observerGoldText.observe(this.scrollTargetBendicion?.nativeElement);
     observerGoldText.observe(this.scrollTargetLugarYFecha?.nativeElement);
+    observerGoldText.observe(this.scrollTargetGaleria?.nativeElement);
+
   }
 
   private playFadeInOnScrollAnimation(target: Element, isWhite: boolean) {

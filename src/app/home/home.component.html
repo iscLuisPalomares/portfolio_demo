@@ -6,12 +6,12 @@
           <img src="/assets/images/vectors/titulo1.svg" alt="">
         </div>
       </div>
-      <div [@fadeInUpDelayed] class="audio-margin">
+      <!-- <div [@fadeInUpDelayed] class="audio-margin">
         <audio controls>
           <source src="https://data.nahuiyluisboda.com.mx/static/arabesque.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
-      </div>
+      </div> -->
       <div [@fadeInUpDelayed] class="d-flex justify-content-evenly countdown-box">
         <div class="position-relative">
           <div class="whitecolor timestamp-font position-absolute top-50 start-50 translate-middle">
@@ -47,6 +47,20 @@
 <div class="row">
   <div class="bg-hoja sectionspacing">
     <div class="col-12">
+      <div #scrollTargetGaleria class="text-center nicefont goldfontsize clearcolor">Galeria de fotos</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="container-fluid">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/NhBRlNNrYFk?si=HXrdCTMLRDhKdx6S" title="Nahui y Luis galeria de fotos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="bg-hoja sectionspacing">
+    <div class="col-12">
       <div #scrollTargetLugarYFecha class="text-center nicefont goldfontsize clearcolor">Lugar & Fecha</div>
     </div>
     <div class="row">
@@ -58,9 +72,9 @@
                 CEREMONIA RELIGIOSA
               </div>
               <div class="col-12">
-                Parroquia Nuestra Sra. Del Rosario De Fatima
+                Parroquia Nuestra Sra. del Rosario de Fátima - 4:30 pm
                 <a href="https://maps.app.goo.gl/EGnTfQaVVc1vsWBp7" 
-                  class="btn btn-primary button-external-link" 
+                  class="btn btn-primary button-external-link"
                   role="button" target="_blank">Ver Ubicación</a>
               </div>
             </div>
@@ -75,7 +89,7 @@
                 CELEBRACIÓN
               </div>
               <div class="col-12">
-                Las Rocas Resort and spa
+                Las Rocas Resort and Spa, Rosarito. - 7:00 pm
                 <a href="https://maps.app.goo.gl/dJAYNYH3uRDWWPpa6" 
                   class="btn btn-primary button-external-link" 
                   role="button" target="_blank">Ver Ubicación</a>
@@ -129,6 +143,7 @@
           <div class="col-1 color-khaki pastel-box"></div>
           <div class="col-1 color-perla pastel-box"></div>
           <div class="col-1 color-blanco pastel-box"></div>
+          <div class="col-1 color-rojo pastel-box"></div>
         </div>
       </div>
       <div #scrollTargetNoChildren class="col-12 col-md-6 rule-box text-center sectionspacing">
@@ -148,27 +163,33 @@
       <div class="gold-border">
         <div class="col-12 mediumfont monofont goldcolor text-center">
           <img src="/assets/images/vectors/titulo2.svg" class="img-invitacion" alt="NyL" height="200pt">
-          <div #scrollTargetBendicion class="formalfont content clearcolor">Con la bendicion de nuestros padres y nuestras
-            familias, hemos decidido juntarnos en matrimonio.</div>
+          <div #scrollTargetBendicion class="formalfont content clearcolor">
+            <div class="container">
+              Andábamos sin buscarnos, pero sabiendo que andábamos para encontrarnos.</div>
+            </div>
         </div>
+        <br>
         <div class="col-12 text-center">
           <div class="row">
             <div #scrollTargetPadresLuis class="col clearcolor font-invitacion">
               <div class="col-12 nicefont subtitle">Padres del Novio</div>
-              <div class="col-12 formalfont content">Sonia Ramos y Luis Palomares</div>
+              <div class="col-12 formalfont content">Sonia Ramos y <br> Luis Palomares</div>
             </div>
             <div #scrollTargetPadresNahui class="col clearcolor font-invitacion">
               <div class="col-12 nicefont subtitle">Padres de la Novia</div>
-              <div class="col-12 formalfont content">Esther Ochoa y Luis Torres</div>
+              <div class="col-12 formalfont content">Esther Ochoa y <br> Luis Torres</div>
             </div>
           </div>
         </div>
         <div class="col-12 subtitle nicefont clearcolor text-center">
           <div #scrollTargetPadrinos class="col clearcolor">
             <div class="col-12 nicefont subtitle">Padrinos</div>
-            <div class="col-12 formalfont content">Guadalupe Ramos y Adan Hernandez</div>
-            <div class="col-12 formalfont content">Angelica Ramos</div>
+            <div class="col-12 formalfont content">Guadalupe Ramos y Adán Hernandez</div>
+            <div class="col-12 formalfont content">Angélica Ramos</div>
             <div class="col-12 formalfont content">Luz Ramos y Angel Vega</div>
+            <div class="col-12 formalfont content">Gabriela Ochoa</div>
+            <div class="col-12 formalfont content">Sophia Torres</div>
+            <div class="col-12 formalfont content">Raquel Güido</div>
           </div>
         </div>
         <div class="col-12 d-flex justify-content-center">
@@ -181,20 +202,19 @@
 <div class="row">
   <div class="bg-marmol sectionspacing">
     <div #scrollTargetAgradecimientos class="text-center">
-      <div class="col-12 nicefont title whitecolor">Mesa de Regalos</div>
-      <div class="col-12 formalfont content whitecolor">Nuestro mejor regalo es su presencia pero si deseas tener un detalle con nosotros puedes realizar una transferencia:</div>
-      <div class="col-12">
+      <div #scrollTargetMesaDeRegalos class="col-12 nicefont title clearcolor">Mesa de Regalos</div>
+      <div #scrollTargetMesaMensaje class="col-12 formalfont content clearcolor">Nuestro mejor regalo es su presencia pero si deseas tener un detalle con nosotros puedes realizar una transferencia:</div>
+      <div #scrollTargetMesaTarjetaImg class="col-12">
         <img src="/assets/images/vectors/card.svg" alt="" height="70pt">
       </div>
-      <div class="col-12 formalfont content whitecolor">SANTANDER</div>
-      <div class="col-12 formalfont content whitecolor">Luis Gerardo Palomares</div>
-      <div class="col-12 formalfont content whitecolor">No. Tarjeta: #### #### #### ####</div>
-      <div class="col-12 formalfont content whitecolor">CLABE: #### #### #### ####</div>
+      <div #scrollTargetMesaBanco class="col-12 formalfont content clearcolor">SANTANDER</div>
+      <div #scrollTargetMesaNombre class="col-12 formalfont content clearcolor">Luis Gerardo Palomares</div>
+      <div #scrollTargetMesaTarjeta class="col-12 formalfont content clearcolor">No. Tarjeta: 5579 1001 9491 8700</div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="bg-hoja tallsection">
+  <div class="bg-hoja tallsection text-center">
     <div class="position-absolute top-50 start-50 translate-middle" *ngIf="isinvitecodedefined">
       <div class="col-12 nicefont goldcolor">
         <div class="col-12 subtitle">Confirmar asistencia {{invitesname}}</div>
