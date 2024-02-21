@@ -54,7 +54,7 @@
 <div class="row">
   <div class="container-fluid">
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/NhBRlNNrYFk?si=HXrdCTMLRDhKdx6S" title="Nahui y Luis galeria de fotos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/NhBRlNNrYFk?si=HXrdCTMLRDhKdx6S&playlist=NhBRlNNrYFk&loop=1" title="Nahui y Luis galeria de fotos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -225,8 +225,7 @@
         <div class="col-12 subtitle">Confirmar asistencia {{invitesname}}</div>
         <div class="col-12">
           <select class="form-select form-select-sm" aria-label="Default select example" [(ngModel)]="howmany">
-            <option value="1">Uno</option>
-            <option value="2">Dos</option>
+            <option *ngFor="let invite of this.listMaxInvites; index as i;" value="{{invite.val}}">{{invite.num}}</option>
           </select>
         </div>
         <div class="btn btn-success button-golden-yes" (click)="confirmar(true)">Si</div>

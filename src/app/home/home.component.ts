@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit {
   content: ContentsService;
   invitesname: string = "";
   maxinvites: number = 1;
+  listMaxInvites: any = [];
   invitescode: string = '';
   howmany: number = 1;
   isinvitecodedefined: boolean = false;
@@ -111,6 +112,7 @@ export class HomeComponent implements OnInit {
             console.log(response);
             this.invitesname = response['names'];
             this.maxinvites = response['max'];
+            this.listMaxInvites = this.createListMaxInvites(this.maxinvites);
             this.isinvitecodedefined = this.invitesname.length > 0;
           }, (error) => {
             console.log(error);
@@ -120,6 +122,15 @@ export class HomeComponent implements OnInit {
         }
       });
     this.updateCountdown();
+  }
+
+  createListMaxInvites(maxInvites: any) {
+    let rtn: any = [];
+    let values = ["Cero","Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"];
+    for (let i = 1; i <= maxInvites; i++) {
+      rtn.push({"val": i, "num": values[i]});
+    }
+    return rtn;
   }
 
   updateCountdown(): void {
