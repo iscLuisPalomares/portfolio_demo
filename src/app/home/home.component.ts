@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrollTargetPadresNahui') scrollTargetPadresNahui: ElementRef | undefined;
   @ViewChild('scrollTargetPadrinos') scrollTargetPadrinos: ElementRef | undefined;
   @ViewChild('scrollTargetLugarYFecha') scrollTargetLugarYFecha: ElementRef | undefined;
+  @ViewChild('scrollTargetLugarYFecha2') scrollTargetLugarYFecha2: ElementRef | undefined;
   @ViewChild('scrollTargetCeremoniaReligiosa') scrollTargetCeremoniaReligiosa: ElementRef | undefined;
   @ViewChild('scrollTargetCelebracion') scrollTargetCelebracion: ElementRef | undefined;
   @ViewChild('scrollTargetDressCode') scrollTargetDressCode: ElementRef | undefined;
@@ -226,6 +227,7 @@ export class HomeComponent implements OnInit {
     observerGoldText.observe(this.scrollTargetPadresLuis?.nativeElement);
     observerGoldText.observe(this.scrollTargetBendicion?.nativeElement);
     observerGoldText.observe(this.scrollTargetLugarYFecha?.nativeElement);
+    observerGoldText.observe(this.scrollTargetLugarYFecha2?.nativeElement);
     observerGoldText.observe(this.scrollTargetGaleria?.nativeElement);
 
   }
