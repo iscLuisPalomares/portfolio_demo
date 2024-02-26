@@ -204,11 +204,11 @@
     </div>
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="col-12 bg-marmol sectionspacing mesaderegalosheight">
     <div #scrollTargetAgradecimientos class="text-center position-absolute top-50 start-50 translate-middle anchomax">
       <div #scrollTargetMesaDeRegalos class="col-12 nicefont title clearcolor">Mesa de Regalos</div>
-      <div #scrollTargetMesaMensaje class="col-12 formalfont content clearcolor">Nuestro mejor regalo es su presencia pero si deseas tener un detalle con nosotros puedes realizar una transferencia:</div>
+      <div #scrollTargetMesaMensaje class="col-12 formalfont content clearcolor">Nuestro mejor regalo es su presencia pero si deseas tener un detalle con nosotros puedes :</div>
       <div #scrollTargetMesaTarjetaImg class="col-12">
         <img src="/assets/images/vectors/card.svg" alt="" height="70pt">
       </div>
@@ -217,10 +217,10 @@
       <div #scrollTargetMesaTarjeta class="col-12 formalfont content clearcolor">No. Tarjeta: 5579 1001 9491 8700</div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="bg-hoja tallsection text-center">
-    <div class="position-absolute top-50 start-50 translate-middle" *ngIf="isinvitecodedefined">
+</div> -->
+<div class="row" *ngIf="isinvitecodedefined">
+  <div class="bg-marmol tallsection text-center">
+    <div class="position-absolute top-50 start-50 translate-middle">
       <div class="col-12 nicefont goldcolor">
         <div class="col-12 subtitle">Confirmar asistencia {{invitesname}}</div>
         <div class="col-12">
