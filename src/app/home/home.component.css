@@ -293,10 +293,13 @@
     height: 100%;
 }
 .mesaderegalosheight {
-    height: 6in;
+    min-height: 8in;
+}
+.anchomax {
+    width: 100%;
 }
 
-@media (min-width: 200px) {
+@media (min-width: 200pt) {
     .goldfontsize {
         font-size: 40pt;
     }
@@ -316,13 +319,13 @@
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600pt) {
     .tinyfont {
         font-size: 15pt;
     }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 700pt) {
     .gold-border {
         width: 600px;
     }
@@ -333,7 +336,7 @@
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 800pt) {
     .bigfont {
         font-size: 55px;
     }
