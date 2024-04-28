@@ -14,24 +14,25 @@ export class AboutmeComponent {
   countcoming: number = 0;
   invitedcoming: invited[] = [];
   invitednotcoming: invited[] = [];
+  backendUrl: string = getBackEndUrl();
   constructor(private route: ActivatedRoute, content: ContentsService) {
     this.content = content;
   }
   ngOnInit() {
-    this.content.getInvitesConfimation().subscribe((response: invited[]) => {
-      console.log(response);
-      this.invitedcoming = response.filter((invited, index, arr) => {
-        if (invited["iscoming"] == true) {
-          this.countcoming += invited["howmany"];
-        }
-        return invited["iscoming"] == true;
-      });
-      this.invitednotcoming = response.filter((invited, index, arr) => invited["iscoming"] == false);
-      console.log(this.invitedcoming);
-      console.log(this.invitednotcoming);  
-    }, (error) => {
-      console.log(error);
-    });
+    // this.content.getInvitesConfimation().subscribe((response: invited[]) => {
+    //   console.log(response);
+    //   this.invitedcoming = response.filter((invited, index, arr) => {
+    //     if (invited["iscoming"] == true) {
+    //       this.countcoming += invited["howmany"];
+    //     }
+    //     return invited["iscoming"] == true;
+    //   });
+    //   this.invitednotcoming = response.filter((invited, index, arr) => invited["iscoming"] == false);
+    //   console.log(this.invitedcoming);
+    //   console.log(this.invitednotcoming);  
+    // }, (error) => {
+    //   console.log(error);
+    // });
   }
 }
 
