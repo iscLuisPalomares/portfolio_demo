@@ -41,14 +41,15 @@ import { SavedcolorComponent } from './home/colorpicker/savedcolor/savedcolor.co
 import { PaintComponent } from './home/minigames/paint/paint.component';
 import { ContentsService } from './services/contents.service';
 
-const config: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
+const config_chat: SocketIoConfig = { url: getBackEndUrl(), options: { extraHeaders: {"my-custom-header": "abcd"} } };
+const config_ml: SocketIoConfig = { url: 'ws://localhost:5001', options: { extraHeaders: {"my-custom-header": "abcd"} } };
 
 function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
 }
 
 function getBackEndUrl() {
-  if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168")) return "http://localhost:3000";
+  if (getBaseUrl().includes("localhost") || getBaseUrl().includes("192.168")) return "http://localhost:5001";
   return "http://3.82.4.101:4000/";
 }
 
@@ -93,7 +94,7 @@ export function tokenGetter() {
     DxButtonModule,
     DxDataGridModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config),
+    SocketIoModule.forRoot(config_chat),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'nafta', component: NaftaComponent, canActivate: [AuthGuard] },
