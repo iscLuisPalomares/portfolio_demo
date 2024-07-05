@@ -24,7 +24,8 @@ export class DbsmanagerComponent {
   showListOfCollections(dbname: string) {
     this.dbselected = dbname;
     this.content.getListOfCollections(this.baseUrl, this.dbselected).subscribe((listOfCollections) => {
-      this.collections = listOfCollections;
+      // this.collections = listOfCollections;
+      this.collections = ['risk should be >50', 'connections should be < 100']
     });
   }
 }
